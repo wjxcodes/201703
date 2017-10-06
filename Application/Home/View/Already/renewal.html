@@ -1,0 +1,62 @@
+
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+               <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        
+                        <form action="renewal?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data" onSubmit="return login();" id="loginForm">
+                            续期费用：<input type="text" name="renewal_money" id="renewal_money"><br/><br/><br/>
+                            
+                            续期单号：<input type="text" name="renewal_order" id="renewal_order"><br/><br/>
+                            续期时间：<input type="text" name="renewal_time" id="renewal_time"><br/><br/>
+                            续期天数：7天<input type="radio" name="renewal_day" value="7">14天<input type="radio" name="renewal_day" value="14"><br/><br/>
+                            <input type="submit" value="提交">
+                        </form>
+<script type="text/javascript">
+    function login(){
+        var renewal_money=$("#renewal_money").val();
+        var renewal_order=$("#renewal_order").val();
+        var renewal_time=$("#renewal_time").val();
+        var renewal_day=$("input[name=renewal_day]:checked").val();
+        if(renewal_money=='' ||renewal_money==null){
+            alert("钱都是空的还续什么期？");
+            return false;
+        }else if(renewal_order=='' ||renewal_order==null){
+            alert("订单号不能为空");
+            return false;
+        }else if(renewal_time=='' ||renewal_time==null){
+            alert("续期时间不能为空");
+            return false;
+        }else if(renewal_day=='' ||renewal_day==null){
+            alert("续期天数不能为空");
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+</script>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+    <script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+    <script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

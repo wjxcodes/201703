@@ -1,0 +1,9 @@
+[ 2017-09-28T11:14:36+08:00 ] 27.11.35.193 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-09-28T19:06:16+08:00 ] 116.21.130.99 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '15812419259' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('15812419259','5976a1dde6fadd5cc1569250232e8a52','1506596776')
+ERR: 1062:Duplicate entry '15812419259' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('15812419259','5976a1dde6fadd5cc1569250232e8a52','1506596776')
+

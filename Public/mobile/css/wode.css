@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size: 12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+body{ background-color:#f2f2f2;}
+.ding{ width:100%; height:auto; margin:0 auto; background-color:#fff; padding-top:70px; padding-bottom:80px;}
+.yuan{width:300px; height:300px; margin:0 auto; background-color:#fff; border:50px solid #45b7fd; border-radius:200px; text-align:center; }
+.wen{margin-top:100px;}
+.wen .wen-1{font-size:3.5em;}
+.wen .wen-2{font-size:4em;}
+.d-di{text-align:center; font-size:4em; margin-top:40px; color:#666;}
+
+
+
+
+
+
+.neirong{border-top:3px solid #e6e6e6;}
+.neirong li{ width:100%; height:160px; border-bottom:3px solid #e6e6e6; background-color:#fff;}
+.qwe{ width:126px; height:160px; float:left;}
+
+.active img{ display:block; float:left; margin-left:45px; margin-top:48px;}
+.active p,.bank p,.news p{ float:left; margin-left:42px; font-size:48px; color:#333; line-height:160px;}
+.load{ width:26px; height:160px; background:url(huan_06.png) no-repeat center center; float:right; margin-right:45px;}
+
+.bank img{ display:block; float:left; margin-left:45px; margin-top:52px;}
+.news img{ display:block; float:left; margin-left:45px; margin-top:54px;}
+
+
+
+
+
+/* ul neirong end -------------------------*/
+
+.blank{ width:100%; height:40px; background-color:#f2f2f2;}
+
+.qwe{ width:126px; height:160px; float:left;}
+.shezhi img{ display:block; float:left; margin-left:45px; margin-top:45px;}
+.youhui img{ display:block; float:left; margin-left:45px; margin-top:54px;}
+.invi img{display:block; float:left; margin-left:45px; margin-top:36px;}
+.help img{ display:block; float:left; margin-left:45px; margin-top:46px;}
+
+.youhui p,.invi p,.shezhi p,.help p{ float:left; margin-left:42px; font-size:48px; color:#333; line-height:160px;}
+
+
+
+
+.yaom{ float:right; margin-right:24px; font-size:42px; color:#989898; line-height:160px;}
+
+/* ul blank end -------------------------*/
+
+
+.tui{ width:100%; height:100px; margin-top:70px; }
+.tui input{ width:80%; height:100px; margin:0 auto; border: none; border:3px solid #45b7fd; border-radius:50px; background-color:#fff; font-size:42px; color:#45b7fd;}
+
+
+.foot{ width:100%; height:144px; border-top:1px solid #f0f0f0; background-color:#fff; position:fixed; bottom:0;}
+.line{ width:100%; height:1px; background-color:#dcdcdc;}
+.foot img{ margin-top:20px;}
+.icon1{ margin-left:10%; float:left; }
+.icon2{ margin:0 auto;}
+.icon3{ margin-right:10%; float:right; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

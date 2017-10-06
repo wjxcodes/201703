@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="msapplication-tap-highlight" content="no">
+<!-- 适应移动端end -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<!-- 删除苹果默认的工具栏和菜单栏 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!-- 设置苹果工具栏颜色 -->
+<meta name="format-detection" content="telphone=no, email=no" />
+<!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit">
+<!-- 避免IE使用兼容模式 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+<meta name="HandheldFriendly" content="true">
+<!-- 微软的老式浏览器 -->
+<title>银行卡信息</title>
+
+<link href="__ROOT__/Public/mobile/css/geren.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__ROOT__/Public/mobile/js/jq-5.js"></script>
+<script type="text/javascript" src="__ROOT__/Public/mobile/js/jquery-1.11.1.js"></script>
+</head>
+
+<body style="background-color:#fff;"  >
+<form action="__URL__/bank_card" method="post" enctype="multipart/form-data" onSubmit="return login();" id="loginForm">
+
+ <div class="ps" style="background-color:#F2F2F2;" >
+<div style="text-align:center; font-size:12px; color:#45B7FD;">请务必准确填写以下要素，否则审核将不予通过</div>
+</div> 
+
+
+<div class="xm">
+  <ul class="xin">
+    <li class="z1">持卡人：</li>
+    <li class="z2" ><input type="text" readonly="readonly" placeholder="请填写开户人姓名" value="{$user_data.chikaren}" name="chikaren" id="chikaren"/></li>
+  </ul>
+</div>
+
+<div class="qing"></div>
+
+<div class="sfz">
+  <ul class="xin">
+    <li class="z1">卡号：</li>
+    <li class="z2">
+      <input type="text" placeholder="请输入银行卡号" <if condition="$loan_data.is_loan eq 1">readonly="readonly"<else/></if> value="{$user_data.yinhangka}" name="yinhangka" id="yinhangka"/></li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+window.onload=function(){
+var t=document.getElementById("yinhangka");
+t.onkeydown=change;
+t.onkeyup=change;
+t.onkeypress=change;
+}
+function change(){
+this.value=this.value.replace(/(\d{4})(?=[^\s])/,'$1 ');//替换空格前4位数字为4位数字加空格
+}
+</script>
+
+
+
+<if condition="$loan_data.is_loan eq 1">
+<else/>
+<div class="bc">
+  <input type="submit" value="确定绑卡">
+</div>
+</if>
+
+<div class="dibu">
+  <div class="db-tu"><img src="__ROOT__/Public/mobile/images/grxx_11.png"/></div>
+  <div class="db-zi">银行级数据加密防护</div>
+</div>  
+
+
+
+</form>
+<script type="text/javascript">
+
+
+  function login() {
+      var chikaren=$("#chikaren").val();
+      var yinhangka=$("#yinhangka").val();
+      var xinyinhangka=yinhangka.replace(/\s/g, "");
+      var yinhangkashouji=$("#yinhangkashouji").val();
+      if(chikaren=="" || chikaren==null){
+          alert("持卡人姓名不能为空");
+          return false;
+      }else if(!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(chikaren))){
+           alert("姓名格式错误");
+           return false;
+      }else if(xinyinhangka==""||xinyinhangka==null){
+          alert("银行卡不能为空");
+          return false;
+      }else if(!(/^\d{16}|\d{19}$/.test(xinyinhangka))){
+          alert("请输入正确的银行卡");
+          return false;
+      }else{
+        return true;
+      }
+  }
+
+</script>
+</body>
+</html>

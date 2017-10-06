@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size:12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+.ding{ width:100%; height:30px; background-color:#45b7fd;}
+.xin{ width:92%; height:30px; line-height:30px; font-size:1.4em; margin:0 auto; text-align:left; color:#FFF;}
+/*ding  end*/
+
+
+.jindu{ width:92%; height:auto; margin:0 auto;}
+.jdt{ width:8%; height:auto; float:left;}
+.jdt ul li{ height:40px; padding-top:20px;}
+.jdt ul li .yuan{ width:20px; height:20px; border-radius:10px; background-color:#45b7fd; }
+.jdt ul li .xian{ width:2px; height:60px; margin-left:9px; background-color:#45b7fd;}
+.yuan1,.yuan2,.yuan3{width:20px; height:20px; border-radius:10px; background-color:#ccc; }
+.yuan1-1,.yuan2-1,.yuan3-1{width:20px; height:20px; border-radius:10px; background-color:#45b7fd; }
+.xian1,.xian2,.xian3{  width:2px; height:60px; margin-left:9px; background-color:#ccc;}
+.xian1-1,.xian2-1,.xian3-1{  width:2px; height:60px; margin-left:9px; background-color:#45b7fd;}
+
+
+.zi{ width:92%; float:right; height:auto;}
+.zi ul li{ height:60px; font-size:1em; text-align:left;}
+.zi ul li .z1{ color:#333;}
+.zi ul li .z1 span{ color:#333;}
+.zi ul li .z2-1{ color:#333;}
+.zi ul li .z3-1{ color:#333;}
+.zi ul li .z4-1{ color:#333;}
+.zi ul li .z2-1 span{ color:#333;}
+.zi ul li .z3-1 span{ color:#333;}
+.zi ul li .z4-1 span{ color:#333;}
+.zi ul li p{ padding-top:10px; color:#aaa;}
+.zi ul li span{ font-size:1.4em; color:#aaa;}
+/*jindu  end*/
+
+.dian{ width:50%; height:30px; margin:0 auto; }
+.dian input{ width:100%; height:30px; border:none; background-color:#45b7fd; color:#FFF; border-radius:15px; font-size:1.3em; margin-top:30px;}
+
+
+
+
+

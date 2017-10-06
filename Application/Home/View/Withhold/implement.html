@@ -1,0 +1,103 @@
+ 
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+               <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <a style="margin-left:10%;" href="{:U('Home/Withhold/debit')}"><button>执行代扣</button></a>
+                    </div>
+                        <div class="ibox-content">
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>银行卡绑定手机号</th>
+                                    <th>银行卡号</th>
+                                    <th>放款时间</th>
+                                    <th>系统时间</th>
+                                    <th>放款额度</th>
+                                    <th>借款期限</th>
+                                    <th>到期时间</th>
+                                    <th>是否续期</th>
+                                    <th>订单编号</th>
+                                    <th>借款次数</th>
+                                    <th>签约状态</th>
+                                    <th>扣款时间</th>
+                                    <th>扣款状态</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="loan_info" item="v" key="k">
+                                <tr>
+                                    <td>{$k+1}</td>
+                                    <td>{$v['user_name']}</td>
+                                    <td>{$v['bank_card']}</td>
+                                    <td>{$v['is_pay']|date="Y-m-d H:i",###}</td>
+                                    <td>
+                                        <if condition="($v['is_pays']) eq null">
+                                            小暑之前
+                                        <else />
+                                            {$v['is_pays']|date="Y-m-d H:i",###}
+                                        </if>
+                                    </td>
+                                    <td>{$v['loan_amount']}元 </td>
+                                    <td>
+                                        <if condition="($v['loan_time'] eq 1)">
+                                            <b>7天</b>
+                                        <elseif condition="($v['loan_time'] eq 2)" />
+                                            <b>14天</b>
+                                        </if>
+                                    </td>
+                                    <td>
+                                    <if condition="($v['renewal_days'] neq 0)">
+                                    {$v['user_name']|stopTime}
+                                    <else/>
+                                    {$v['overday_time']|date="Y-m-d H:i",###}
+                                    </if>
+                                    </td>
+                                    <td>
+                                        <if condition="($v['renewal_days'] eq 0)">
+                                            未续期
+                                        <else/>
+                                            {$v['renewal_days']}天
+                                        </if>
+                                    </td>
+                                    <td>{$v['repayment_no']}</td>
+                                    <td>{$v['loan_num']}</td>
+                                    <td>{$v['ll_code']}</td>
+                                    <td>{$v['auth_time']}</td>
+                                    <td>{$v['ll_status']}</td>
+                                </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                            <div class="pagination">{$page}</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+    <script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+    <script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate
+});
+</script>
+</html>

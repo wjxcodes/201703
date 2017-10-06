@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size: 12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+input{ outline:none;}
+/*共同样式 end*/
+
+.bor{ width:100%; height:100%; background-color:#f2f2f2;}
+.top{width:100%; height:120px; background-color:#45b7fd; margin-bottom:40px;}
+.top a .back{ width:80px; height:120px; background:url(../images/ques_03.png) no-repeat left center; margin-left:45px; float:left;}
+.wen{font-size:48px; color:#fff; line-height:120px; text-align:left; margin-left:42px;}
+
+.list li{ width:100%; height:160px; background-color:#FFF; border-bottom:3px solid #eee; margin-bottom:20px; overflow:hidden;}
+
+.list-l{ width:28%; float:left; }
+.list-l p,.list-z p{ font-size:48px; color:#333; margin-left:45px; text-align:left; margin-top:32px;}
+.list-l p span,.list-z p span,.list-r p span{ font-size:32px; color:#989898; display:block;}
+.line{ width:2px; height:100px; background-color:#ccc; float:left; margin-top:30px;}
+.list-z{ float:left;}
+.list-z p{ text-align:center;}
+.list-r{ float:right; margin-right:45px;}
+.list-r p{font-size:48px; color:#333; text-align:right; margin-top:32px;}
+
+
+
+
+.top01{ width:100%; height:700px; background-color:#fff;}
+.top01 img{ display:block; padding-top:134px; margin:0 auto;}
+.t-wo{ margin-top:45px; font-size:36px; color:#d6d6d6; padding-left:28px;}
+.jie{ width:36%; height:86px; border-radius:44px; background-color:#45b7fd; margin:0 auto; margin-top:45px;}
+.jie p{ font-size:48px; color:#fff; line-height:86px; margin:0 auto;}
+
+
+
+
+
+
+
+
+

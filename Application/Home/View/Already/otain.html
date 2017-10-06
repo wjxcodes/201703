@@ -1,0 +1,69 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>持卡人姓名</th>
+                            <th>身份证号</th>
+                            <th>借款金额</th>
+                            <th>到期时间</th>
+                            <th>本息</th>
+                            <th>签字确认</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <volist name="info" id="vo" key="k">
+                                    <td>{$k}</td>
+                                    <td>{$vo['u_name']}</td>
+                                    <td>{$vo['identity']}</td>
+                                    <td>{$vo['loan_amount']}</td>
+                                    <td>{$vo['bentime']|date="Y年m月d日",###}</td>
+                                    <td>{$vo['money']}</td>
+                                    <td>
+                                        <if condition="($vo['group'] eq 1)">
+                                            杨文庆
+                                        <elseif condition="($vo['group'] eq 2)"/>
+                                            王贺
+                                        <elseif condition="($vo['group'] eq 3)"/>
+                                            蔡浩峰
+                                        <elseif condition="($vo['group'] eq 4)"/>
+                                            张晓妮
+                                        <elseif condition="($vo['group'] eq 5)"/>
+                                            韩福军
+                                        <elseif condition="($vo['group'] eq 6)"/>
+                                            何士豪
+                                        </if>
+                                    </td>
+                                </tr>
+                            </volist>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

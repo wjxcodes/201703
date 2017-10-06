@@ -1,0 +1,64 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>添加管理员</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="commentForm" action="{:U('Home/Manager/update',array('id'=>$get_id))}" method="post">
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">名称：</label>
+                            <div class="col-sm-2">
+                                <input id="cname" name="authname" minlength="2" type="text" class="form-control" value="{$auth_data['authname']}" required="" aria-required="true" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">账号：</label>
+                            <div class="col-sm-2">
+                                <input id="cemail" type="text" class="form-control" name="username" required="" value="{$auth_data['username']}" aria-required="true" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">密码：</label>
+                            <div class="col-sm-2">
+                                <input id="cemail" type="password" class="form-control" name="password" aria-required="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><label class="col-sm-1 control-label">权限：</in></label>
+                            <volist name="auth_limit_data" id="vo">
+                            <label><input type="checkbox" name="module{$vo['id']}"   <php> if(in_array( $vo['controller'],$auth_data['auth'])){echo 'checked="checked"';}</php>  value="{$vo['controller']}"/>{$vo['module']}</label>
+                            </volist>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-1">
+                                <button class="btn btn-primary" type="submit">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

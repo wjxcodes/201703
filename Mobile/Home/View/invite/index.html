@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no,maximum-scale=1.0, minmum-scale=1.0"/>
+<title>邀请奖励</title>
+<script src="__ROOT__/Public/mobile/js/jquery.min.js"></script>
+<style>
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size:24px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑; margin:0; padding:0;  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+
+.ic{ width:100%; height:160px; font-size:42px; line-height:160px; }
+.ic span{ color:#45b7fd; font-size:48px;}
+.integral{ width:90%; height:auto; margin:0 auto; position:relative; font-size:36px;}
+.integral .int-fu{ position:absolute; top:50px; right:0; color:#333; width:200px; height:60px; line-height:60px; border-radius:30px; background-color:#45b7fd; color:#fff; font-size:30px;}
+.int-1{ padding-top:40px; line-height:60px;}
+.int-2{}
+.int-2 span{ color:#45b7fd; font-size:90px;}
+.int-3{ line-height:80px; color:#666; font-size:30px;}
+.duan{ width:100%; height:30px; background-color:#f2f2f2;}
+
+.bonus{ width:90%; height:auto; font-size:36px; margin:0 auto; position:relative;}
+.bonus .bonus-fu{ position: absolute; top:50px; right:0;  color:#333; width:200px; height:60px; line-height:60px; border-radius:30px; background-color:#45b7fd; color:#fff; font-size:30px;}
+.bonus-1{ padding-top:40px; line-height:60px;}
+.bonus-2 span{ color:#45b7fd; font-size:90px;}
+.bonus-3{ line-height:80px; color:#666; font-size:30px;}
+.bonus-4{ height:100px; margin-bottom:20px;}
+.bonus-4 input{ margin-top:10px; width:90%; height:80px; line-height:80px; border:none; background-color:#45b7fd; color:#fff; font-size:36px; border-radius:40px;} 
+
+.invitation{ width:60%; height:auto; margin:0 auto; border:1px solid #666; margin-top:40px;}
+.inv-1{ width:100%; height:80px; line-height:80px; color:#333; font-size:36px; border-bottom:1px solid #666;}
+.inv-yh{ width:100%; height:60px; line-height:60px; border-bottom:1px solid #666;}
+.inv-gd{ width:100%; height:60px; line-height:60px; border-bottom:1px solid #666; font-size:30px;}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+<div class="ic">邀请码：<span>{$user_data['bonuscode']}</span></div>
+
+<!-- <div class="duan"></div>
+
+<div class="integral">
+<ul>
+<li class="int-fu">积分说明</li>
+<li class="int-1">当前邀请积分</li>
+<li class="int-2"><span>0</span> 分</li>
+<li class="int-3">当前积分排名：12</li>
+</ul>
+</div> -->
+
+
+<div class="duan"></div>
+<div class="bonus">
+<ul>
+
+
+<!-- <li class="bonus-fu">提现说明</li> -->
+<li class="bonus-1">当前可提现奖金</li>
+<li class="bonus-2"><span>
+<if condition="$data['no_money'] eq '' OR $data['no_money'] eq 0">
+	0
+<else/>
+	{$data['no_money']}
+</if>
+	.00</span> 元</li>
+<li class="bonus-3">历史奖金：
+<if condition="$data['use_money'] eq '' OR $data['use_money'] eq 0">
+	0
+<else/>
+	{$data['use_money']}
+</if>
+	.00元</li>
+<li  class="bonus-4"><input id="pay" type="button" value="立即提现"  /></li>
+</ul>
+</div>
+<div class="duan"></div>
+
+<div class="invitation">
+<ul>
+<li class="inv-1">成功被邀请人数：
+<if condition="$data['i'] gt 0">
+	{$data['i']}
+	<else/>
+	0
+</if>
+	人</li>
+<if condition="$data['i'] gt 0">
+	<volist name="invitation_data" id="vo">
+		<li class="inv-yh">用户名：{$vo['user_name']}</li>
+	</volist>
+<else/>
+	
+</if>
+
+<!-- <a href="#"><li class="inv-gd">更多∨</li></a>
+<li style=" display:none;">
+<ul>
+<li class="inv-yh">用户名：186****1111</li>
+<li class="inv-yh">用户名：186****2222</li>
+</ul> -->
+</li>
+
+</ul>
+</div>
+
+<script type="text/javascript">
+	$("#pay").click(function(){
+		if(confirm('我们会将奖金提现至您的银行卡内')){
+			window.location.href='request';
+		}else{
+			return false;
+		}
+	});
+</script>
+
+</body>
+</html>

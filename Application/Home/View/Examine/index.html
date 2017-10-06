@@ -1,0 +1,93 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>打款金额审核列表</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>延时通知</th>
+                            <th>手机号(用户名)</th>
+                            <th>持卡人姓名</th>
+                            <th>身份证号</th>
+                            <th>银行卡号</th>
+                            <th>订单编号</th>
+                            <th>申请额度</th>
+                            <th>借款期限</th>
+                            <th>利息(综合费用)</th>
+                            <th>借款次数</th>
+                            <th>申请时间</th>
+                            <th>已核实</th>
+                            <th>审核</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="lstdata" id="vo" key="k">
+                                    <tr>
+                                        <td><a href="{:U('Home/Infoaudit/photo',array('id'=>$vo['user_name'],'open_id'=>$vo['open_id']))}">{$k}</a></td>
+                                        <td><a href="{:U('Home/Examine/sendWx',array('id'=>$vo['user_name'],'open_id'=>$vo['open_id']))}"><button>微信通知</button></a></td>
+                                        <td>{$vo['user_name']}</td>
+                                        <td><a href="{:U('Home/taobao/info',array('tel'=>$vo['user_name']))}">{$vo['bank_name']}</a></td>
+                                        <td><a href="{:U('Home/Survey/index',array('id'=>$vo['user_name'],'open_id'=>$vo['open_id']))}">{$vo['identity']}</a></td>
+                                        <td>{$vo['bank_card']}</td>
+                                        <td>{$vo['loan_order']}</td>
+                                       
+                                         <td><b>{$vo['loan_amount']}元</b></td>
+                                        <td>
+                                        <if condition="($vo['loan_time'] eq 1)">
+                                            <b>7天</b>
+                                        <elseif condition="($vo['loan_time'] eq 2)"/>
+                                            <b>14天</b>
+                                        </if>
+                                        </td>
+                                         <td>
+                                            {$vo['loan_amount']*$vo['interest']-$vo['cuts_interest']}元
+                                        </td>
+                                        <td>{$vo['loan_num']}</td>
+                                        
+                                        <td>{$vo['loan_request']|date="Y-m-d H:i",###}</td>
+                                        <td>
+                                            <if condition="($vo['check'] eq 0)">
+                                                <a href="{:U('Home/Examine/checkUser',array('id'=>$vo['user_id']))}"><button style="color:red;border:1px solid #ccc;">未核实</button></a>
+                                            <else />
+                                                <a href="{:U('Home/Examine/checkUser',array('id'=>$vo['user_id']))}"><button style="color:green;border:1px solid #ccc;">已核实</button></a>
+                                            </if>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('Home/Examine/change',array('id'=>$vo['user_id'],'status'=>2))}">通过</a> | <a href="{:U('Home/Examine/change',array('id'=>$vo['user_id'],'status'=>1,'m'=>$vo['
+                                            ']))}">不通过</a>
+                                        </td>
+                                </tr>
+                                </volist>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

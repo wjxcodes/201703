@@ -1,0 +1,30 @@
+[ 2017-09-18T07:07:29+08:00 ] 183.33.225.213 /free/mobile.php/home/info/help
+ERR: 非法操作:help
+
+[ 2017-09-18T07:58:02+08:00 ] 122.192.14.207 /free/mobile.php/home/info/index1002填写资料
+ERR: 非法操作:index1002填写资料
+
+[ 2017-09-18T07:58:02+08:00 ] 122.192.14.207 /free/mobile.php/home/info/index1002填写资料
+ERR: 非法操作:index1002填写资料
+
+[ 2017-09-18T07:58:03+08:00 ] 122.192.14.207 /free/mobile.php/home/info/index1002填写资料
+ERR: 非法操作:index1002填写资料
+
+[ 2017-09-18T16:07:42+08:00 ] 183.33.225.213 /free/mobile.php/home/info/help
+ERR: 非法操作:help
+
+[ 2017-09-18T16:57:31+08:00 ] 222.212.183.156 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18381018519' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18381018519','000a1e5e4287783eee6cda0b71a786e2','1505725051')
+ERR: 1062:Duplicate entry '18381018519' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18381018519','000a1e5e4287783eee6cda0b71a786e2','1505725051')
+
+[ 2017-09-18T16:57:44+08:00 ] 222.212.183.156 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18381018519' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18381018519','000a1e5e4287783eee6cda0b71a786e2','1505725064')
+ERR: 1062:Duplicate entry '18381018519' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18381018519','000a1e5e4287783eee6cda0b71a786e2','1505725064')
+
+[ 2017-09-18T22:42:06+08:00 ] 221.200.102.119 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+

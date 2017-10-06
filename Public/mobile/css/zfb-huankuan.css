@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size:12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+
+.ding{ width:100%; height:40px; line-height:40px; margin:0 auto; background-color:#45b7fd; color:#FFF; font-size:1.5em;}
+.xin{ width:92%; height:auto; margin:0 auto; margin-top:30px;}
+.xin p{ text-align:left; font-size:1.4em;}
+
+.tu{ width:60%; height:60%; margin:0 auto; margin-top:10px;}
+.tu img{ width:60%; height:60%;}
+
+.dian{ width:50%; height:30px; margin:0 auto; color:#FFF; border-radius:15px; line-height:30px; margin-top:10px;}
+.dian a input{ width:100%; height:30px; display:block; color:#FFF; background-color:#45b7fd; border:none; border-radius:15px;}
+
+
+

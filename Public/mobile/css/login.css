@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size:12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+
+body{background-color:#fafafa; }
+.t-logo{ margin:0 auto; width:100%;}
+.t-logo img{ width:30%;}
+.form-wrap .lists .input_e{ width:92%; margin:0 auto;display:inline-block; line-height:34px; border-radius:5px; font-size:1.5em; margin-top:10px; }
+
+.form-wrap .lists .input_e input{ width:100%; margin:0 auto;display:inline-block;border:1px solid #45b7fd; line-height:34px; border-radius:5px; background-color:#FFF; font-size:1em;}
+.errMsg{ color:#F00; font-size:0.8em;}
+.zi{ text-align:left;}
+.zi1{ font-size:1.5em; text-align:left;}
+.get{ width:92%; margin:0 auto;}
+.getcode-l{ margin-top:15px; width:100%; height:auto; float:left;}
+.getcode-l .ge-1 input{ width:55%;display:inline-block;border:1px solid #45b7fd; line-height:32px; border-radius:5px; background-color:#FFF; font-size:1.5em; float:left;}
+.getcode-l .ge-2 input{ width:40%;display:inline-block;border:1px solid #45b7fd; line-height:32px; border-radius:5px; background-color:#FFF; font-size:1em; float:right;}
+
+
+.submitBtn input{ width:92%; margin:0 auto;display:inline-block;border:1px solid #45b7fd; line-height:34px; border-radius:5px; background-color:#FFF; font-size:1.5em; margin-top:30px;}
+
+.service_link2{ color:#45b7fd; margin-top:10px;}
+.form-wrap .already{ margin-top:30px; width:92%; margin:0 auto; padding-top:30px; text-align:left;}
+.form-wrap .already a{ color:#000; width:90%; margin:0 auto; text-align:left; font-size:1.2em;}
+
+.form-wrap .already ul li{ float:left;}
+.form-wrap .already ul .already2{ float:right;}
+
+
+
+
+

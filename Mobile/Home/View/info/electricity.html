@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="msapplication-tap-highlight" content="no">
+<!-- 适应移动端end -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<!-- 删除苹果默认的工具栏和菜单栏 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!-- 设置苹果工具栏颜色 -->
+<meta name="format-detection" content="telphone=no, email=no" />
+<!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit">
+<!-- 避免IE使用兼容模式 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+<meta name="HandheldFriendly" content="true">
+<!-- 微软的老式浏览器 -->
+<title>认证授信</title>
+<style type="text/css">
+  .dianji {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+    height:100% ;
+    zoom: 1;
+  background-color: #666;
+  z-index: 999;
+  filter: alpha(opacity=30); /*IE滤镜，透明度30%*/
+  -moz-opacity: 0.3; /*Firefox私有，透明度30%*/
+  opacity: 0.3;/*其他，透明度30%*/
+}
+.yincang { border: 1px solid #45b7fd;
+  display: block;
+  background: #fff;
+  
+  margin:0 auto;
+  text-align:center;
+  width:80.3%;
+  height:200px;
+  border-radius:5px;
+  
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999999
+}
+
+.yincang p{ font-size:24px; color:#111; text-align:center; line-height:40px;
+ border-bottom:2px solid #eee;}
+.yincang .ent{ width:90.2%; margin:0 auto; font-size:16px; color:#333; 
+text-align:center; margin-top:15px; margin-bottom: 15px;}
+.yincang .anjian{
+  width:60%;
+  height:30px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.yincang .anjian input{
+  width:100%;
+  font-family:"Microsoft YaHei",微软雅黑;
+  height: 30px;
+  line-height:30px;
+  font-size:18px;
+  border: none;
+  border-radius:6px;
+  background-color: #45b7fd;
+  color: #fff;
+}
+.bq9{width:100%; display:block; border:none; border:1px solid #45b7fd; line-height:40px; font-size:18px; text-align:center; float:left; }
+</style>
+
+<link href="__ROOT__/Public/mobile/css/ziliao.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__ROOT__/Public/mobile/js/jquery-1.11.1.js"></script>
+
+</head>
+
+<body onload="show();">
+<div class="bq">
+
+ <A  class="bq9">消费认证</A>
+</div>
+
+<div class="qing"></div>
+<div style=" width:100%; height:20px;"></div>
+
+
+
+ <div class="zhima">
+  <a href="__URL__/taobao">
+    <div class="z-xin">
+    <div class="tb"><img src="__ROOT__/Public/mobile/images/1s_01.png" style="margin-top:18px;"/></div>
+    <div class="zi">
+      <div class="zi-xin">
+        <ul>
+          <li>淘宝认证<span></span></li>
+          <li class="hui">经常使用淘宝选择淘宝认证</li>
+        </ul>
+      </div>
+    </div>
+    <if condition="($taobao_data.is_collect eq '') OR ($taobao_data.is_collect eq 0)">
+ <div class="wanshan" style="color:#BEBEBE;">
+  未完善&nbsp;<img src="__ROOT__/Public/mobile/images/zl_06.png"/></div>
+ <else/>
+ <div class="wanshan">
+ 已完善&nbsp;<img src="__ROOT__/Public/mobile/images/zl_06.png"/></div>
+ </if>
+  </div></a>
+ </div>
+ <div class="qing"></div>
+ 
+ <div class="zhima">
+ <a href="__URL__/jingdong">
+   <div class="z-xin">
+   <div class="tb"><img src="__ROOT__/Public/mobile/images/12_03.png" style="margin-top:18px;"/></div>
+   <div class="zi">
+     <div class="zi-xin">
+       <ul>
+         <li>京东认证<span></span></li>
+         <li class="hui">经常使用京东选择京东认证</li>
+       </ul>
+     </div>
+   </div>
+   <if condition="($jingdong_data.is_collect eq '') OR ($jingdong_data.is_collect eq 0)">
+ <div class="wanshan" style="color:#BEBEBE;">
+ 未完善&nbsp;<img src="__ROOT__/Public/mobile/images/zl_06.png"/></div>
+ <else/>
+ <div class="wanshan">
+ 已完善&nbsp;<img src="__ROOT__/Public/mobile/images/zl_06.png"/></div>
+ </if>
+ </div></a>
+ </div>
+ <div class="qing"></div>  
+ 
+
+<!--  <div class="yincang">
+ <p>提示</p>
+ <div class="ent">
+       请选填淘宝或京东中常用的一项进行认证，如果两项都填写，会提高审核通过率
+ </div>
+ <div class="anjian">
+   <input type="button" value="我知道了" onClick="closeDiv()"/>
+ </div>
+</div> -->
+
+ 
+<script type="text/javascript">
+/* 弹窗js */
+function show(){
+    $(".dianji").css({"height=100%":window.screen.availHeight});
+    $(".dianji").show();
+ 
+    var st=$(document).scrollTop(); //页面滑动高度
+    var objH=$(".yincang").height();//浮动对象的高度
+    var ch=$(window).height();//屏幕的高度  
+    var objT=Number(st)+(Number(ch)-Number(objH))/2;   //思路  浮动高度+（（屏幕高度-对象高度））/2
+    $(".yincang").css("top",objT);
+     
+    var sl=$(document).scrollLeft(); //页面滑动左移宽度
+    var objW=$(".yincang").width();//浮动对象的宽度
+    var cw=$(window).width();//屏幕的宽度  
+    var objL=Number(sl)+(Number(cw)-Number(objW))/2; //思路  左移浮动宽度+（（屏幕宽度-对象宽度））/2
+    $(".yincang").css("left",objL);
+    $(".yincang").show();//这里显示方式多种效果
+}
+function closeDiv(){
+    $(".dianji").hide();
+    $(".yincang").hide();
+    $(".yincang1").hide();
+}
+
+</script>
+
+
+
+
+
+<a href="__URL__/index"><div style=" width:80%; height:40px; margin:0 auto; margin-left:10%; border-radius:5PX;  border:1px solid #45b7fd; background-color:#fff; color:45b7fd; font-size:16px; line-height:40px; position:fixed; bottom:100px; ">返回</div></a>
+
+</div> 
+</body>
+</html>

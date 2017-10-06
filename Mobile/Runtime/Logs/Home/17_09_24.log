@@ -1,0 +1,21 @@
+[ 2017-09-24T09:59:12+08:00 ] 117.136.40.223 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '13767685226' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('13767685226','d711ec13b927e2d2ea4c9767a6e0032d','1506218352')
+ERR: 1062:Duplicate entry '13767685226' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('13767685226','d711ec13b927e2d2ea4c9767a6e0032d','1506218352')
+
+[ 2017-09-24T09:59:18+08:00 ] 117.136.40.223 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '13767685226' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('13767685226','d711ec13b927e2d2ea4c9767a6e0032d','1506218358')
+ERR: 1062:Duplicate entry '13767685226' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('13767685226','d711ec13b927e2d2ea4c9767a6e0032d','1506218358')
+
+[ 2017-09-24T13:24:17+08:00 ] 223.104.57.70 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-09-24T14:35:51+08:00 ] 114.135.162.107 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-09-24T15:00:54+08:00 ] 58.62.166.84 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+

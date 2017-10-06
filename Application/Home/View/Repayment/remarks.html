@@ -1,0 +1,78 @@
+
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+               <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                     <div class="ibox-title">
+                            <h5>共免逾期费用:<span style="color: red">{$overdue_money}</span>元</h5>
+                            <h5 style="margin-left:20px;">共免利息费用:<span style="color: red;">{$money}</span>元</h2>
+                    </div>
+
+                        <form action="{:U('Home/Repayment/remarks_create')}" method="post" style="float: left; margin-right: 0px;">
+                                <input type="text" name="name" placeholder="请输入手机号">
+                                <input type="hidden" name="code" value="1">
+                                <input type="submit" value="提交">
+                        </form>
+
+                        <div class="ibox-content">
+
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                                <tr>
+                                    <th>序号</th>
+                                    <th>姓名</th>
+                                    <th>手机号</th>
+                                    <th>借款时间</th>
+                                    <th>借款期限</th>
+                                    <th>放款金额</th>
+                                    <th>综合费用</th>
+                                    <th>免去的利息费用</th>
+                                    <th>免去的逾期费用</th>
+                                    <th>还款时间</th>
+                                    <th>应还时间</th>
+                                    <th>操作</th>
+                                    <th>备注</th>
+
+                                </tr>
+                            <volist name="remarks_data" id="vo" key="k">
+                                <tr>
+                                    <td>{$k}</td>
+                                    <td>{$vo['u_name']}</td>
+                                    <td>{$vo['user_name']}</td>
+                                    <td>{$vo['pay_time']|date="Y-m-d H:i:s",###}</td>
+                                    <td>{$vo['loan_time']}</td>
+                                    <td>{$vo['pay_money']}</td>
+                                    <td>{$vo['pay_money']*$vo['interest']}</td>
+                                    <td>{$vo['money']}</td>
+                                    <td>{$vo['payment']-$vo['money']}</td>
+                                    <td>{$vo['repayment_time']|date="Y-m-d H:i:s",###}</td>
+                                    <td>{$vo['be_time']|date="Y-m-d H:i:s",###}</td>
+                                    <td><a href="remarks_delete?id={$vo['id']}"><button>移除</button></a></td>
+                                    <td>{$vo['remarks']}</td>
+
+                                </tr>
+                            </volist>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+    <script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+    <script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

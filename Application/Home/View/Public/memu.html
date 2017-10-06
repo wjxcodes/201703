@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>主页</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="__ROOT__/Public/css/page.css?v=3.3.6" rel="stylesheet">
+    <link href="__ROOT__/Public/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="__ROOT__/Public/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="__ROOT__/Public/css/animate.min.css" rel="stylesheet">
+    <link href="__ROOT__/Public/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="__ROOT__/Public/layui/src/css/layui.css">
+    <script src="__ROOT__/Public/layui/src/layui.js"></script>
+</head>
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+            <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="nav-close"><i class="fa fa-times-circle"></i>
+        </div>
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <span><img alt="image" class="img-circle" src="__ROOT__/Public/img/free.jpg" /></span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                               <span class="block m-t-xs"><strong class="font-bold">蜻蜓科技</strong></span>
+                                <span class="text-muted text-xs block"><?php  echo session('aname');?></span>
+                                </span>
+                        </a>
+                    </div>
+                    <div class="logo-element">蜻蜓
+                    </div>
+                </li>
+                
+                <volist name="base_auth" id="vo">
+                    
+                    <switch name="vo" >
+                        <case value="Manager">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">管理员</span>
+                                </a>
+                            </li>
+                        </case>
+
+                        <case value="Register">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">注册用户</span>
+                                </a>
+                            </li>
+                        </case>
+
+                        <case value="Infoaudit">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">用户审核</span>
+                                </a>
+                            </li>
+                        </case>
+
+                        <case value="Credit">
+                            <li>
+                                <a href="{:U("Home/$vo/credit")}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">芝麻信息</span>
+                                </a>
+                            </li>
+                        </case>
+
+                        <case value="Examine">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">打款审核</span>
+                                </a>
+                            </li>
+                        </case>
+
+                        <case value="Pending">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">待放款</span>
+                                </a>
+                            </li>
+                        </case>
+
+                        <case value="Already">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">已放款</span>
+                                </a>
+                            </li>
+                        </case>
+                        
+                        <case value="Search">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">用户搜索</span>
+                                </a>
+                            </li>
+                        </case>
+
+                        <case value="Renewal">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">续期还款</span>
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Renewal/renewal')}" data-index="0">快钱续期</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Renewal/index')}" data-index="0">支付宝续期</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Renewal/ll_pay')}" data-index="0">连连续期</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </case>
+                        
+                        
+
+
+                        <case value="Repayment">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">还款记录</span>
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Repayment/refund')}" data-index="0">快钱还款</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Repayment/zfb')}" data-index="0">支付宝还款</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Repayment/ll_pay')}" data-index="0">连连还款</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Repayment/countnum')}" data-index="0">催收回款</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </case>
+
+                        <case value="Pre">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">逾期未还</span>
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Pre/index')}" data-index="0">预催收</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/rong/index')}" data-index="0">容时期</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Overdue/day_To_day',array('day1'=>4,'day2'=>10000000))}" data-index="0">逾期4天以上</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Overdue/blackList')}" data-index="0">添加黑名单</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Overdue/area')}" data-index="0">地区信息</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </case>
+
+
+                        <case value="Withhold">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">连连代扣</span>
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Withhold/index')}" data-index="0">预约代扣</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Withhold/implement')}" data-index="0">执行代扣</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Withhold/querySignHtml')}" data-index="0">绑卡查询</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">连连代付</span>
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Withhold/viwedf')}" data-index="0">执行代付</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U('Home/Withhold/queryviwedf')}" data-index="0">代付查询</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </case>
+
+
+                        <case value="Statis">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}"><i class="fa fa-picture-o"></i> <span class="nav-label">统计信息</span></a>
+                            </li>
+                        </case>
+
+                        <case value="Mention">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}"><i class="fa fa-picture-o"></i> <span class="nav-label">配置中心</span></a>
+                            </li>
+                        </case>
+
+                        <case value="Interest">
+                            <li>
+                                <a href="{:U("Home/$vo/index")}"><i class="fa fa-picture-o"></i> <span class="nav-label">降息统计</span></a>
+                            </li>
+                        </case>
+                        <case value="Bad">
+                             <li>
+                                <a href="#">
+                                    <i class="fa fa-home"></i>
+                                    <span class="nav-label">催收部</span>
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a class="J_menuItem" href="{:U("Home/$vo/group")}" data-index="0">我的任务</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U("Home/$vo/loanrecord")}" data-index="0">放款记录</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="{:U("Home/$vo/publics")}" data-index="0">公共区域</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </case>
+                        
+                    </switch>
+                </volist>
+            
+
+            </ul>
+        </div>
+    </nav>
+        <!--左侧导航结束-->
+        </html>

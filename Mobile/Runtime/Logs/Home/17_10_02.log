@@ -1,0 +1,21 @@
+[ 2017-10-02T11:18:08+08:00 ] 117.136.67.39 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-10-02T18:35:16+08:00 ] 61.158.147.240 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-10-02T18:36:22+08:00 ] 61.158.147.240 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-10-02T20:30:07+08:00 ] 117.136.50.201 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '15891768200' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('15891768200','fca27b17c8597a3295561c37485be10e','1506947407')
+ERR: 1062:Duplicate entry '15891768200' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('15891768200','fca27b17c8597a3295561c37485be10e','1506947407')
+
+[ 2017-10-02T21:20:13+08:00 ] 112.96.145.48 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-10-02T21:20:23+08:00 ] 112.96.145.48 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+

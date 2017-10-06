@@ -1,0 +1,119 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <form action="{:U('Home/Bad/remarks')}" method="post" style="float: left; margin-right: 0px;">
+                        <textarea style="width:1000px;height:30px;"  name="text" value=""></textarea>
+                        <input type="hidden" name="name" value="{$map}">
+                        <input type="submit" value="提交">
+                    </form>
+                </div>
+                <div class="ibox-content">
+                    <table style="background:#FF4040;color:#080808;" id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>机主姓名</th>
+                            <th>身份证号</th>
+                            <th>在网时长</th>
+                            <th>手机号码</th>
+                            <th>运营商</th>
+                            <th>归属地</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{$phone['realName']}</td>
+                                <td>{$phone['certNo']}</td>
+                                <td>{$phone['netAge']}</td>
+                                <td>{$phone['phoneNo']}</td>
+                                <td>{$phone['operator']}</td>
+                                <td>{$phone['addr']}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="background:#FFB90F;color:#080808;" id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>支付宝账户</th>
+                            <th>绑定手机号</th>
+                            <th>实名信息</th>
+                            <th>支付宝余额</th>
+                            <th>余额宝余额</th>
+                            <th>花呗余额</th>
+                            <th>花呗总额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{$tbao['zfbzh']}</td>
+                                <td>{$tbao['bindMobile']}</td>
+                                <td>{$tbao['identity']}</td>
+                                <td>{$tbao['zfbye']}</td>
+                                <td>{$tbao['yebye']}</td>
+                                <td>{$tbao['hbye']}</td>
+                                <td>{$tbao['hbze']}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="background:#7CCD7C;color:#080808;" id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>淘宝收货地址</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="addrs" id="vo" key="k">
+                            <tr>
+                                <td>{$vo}</td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>联系号码</th>
+                            <th>归属地</th>
+                            <th>通话时长</th>
+                            <th>主叫次数</th>
+                            <th>被叫次数</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <volist name="callrecords" id="vo" key="k">
+                            <tr>
+                                <td>{$vo['phoneNo']}</td>
+                                <td>{$vo['belongArea']}</td>
+                                <td>{$vo['connTime']}</td>
+                                <td>{$vo['callTimes']}</td>
+                                <td>{$vo['calledTimes']}</td>
+                            </tr>
+                            </volist>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

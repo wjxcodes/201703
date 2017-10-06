@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no,maximum-scale=1.0, minmum-scale=1.0"/>
+<title>无标题文档</title>
+<style>
+a{ text-decoration:none;}
+.dian {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 40px;
+	
+}
+.dian button {
+	width: 300px;
+	height: 80px;
+	border: none;
+	background-color: #fff;
+	border: 2px solid #45b7fd;
+	font-size: 36px;
+}
+.sc-tp {
+	width: 90%;
+	height: auto;
+	margin-left: 5%;
+	margin-top: 40px;
+	border: none;
+	margin-bottom:100px;
+}
+.wz {
+	width: 100%;
+	height: 100px;
+	line-height:100px;
+	font-size: 48px;
+	text-align: center;
+	margin-top: 40px;
+	
+}
+.dianji { line-height:100px;
+	text-align:center;
+	
+	width: 70%;
+	height: 100px;
+	margin: 0 auto;
+	background-color: #45b7fd;
+	border-radius: 10px;
+	font-size: 48px;
+	color: #fff;
+}
+</style>
+</head>
+
+<body style=" margin:0;">
+<canvas id="myCanvas" style=" background-color:#f2f2f2;" ></canvas>
+<div class="wz">请在上方灰色手写框内写下自己的姓名</div>
+<div class="dian">
+  <button onclick="clean();">清空</button>
+  <button onclick="save();" style="float:right;">生成图片</button>
+</div>
+<img id='img' alt='' class="sc-tp"/>
+
+<A href="###">
+<div class="dianji">确定</div>
+</A> 
+<script type="text/javascript">
+
+            var canvas,board,img;
+            canvas = document.getElementById('myCanvas');
+            img= document.getElementById('img');
+            
+            canvas.height = 400;
+            canvas.width = 980;
+			
+           
+            board = canvas.getContext('2d');
+            
+            var mousePress = false;
+            var last = null;
+            
+            function beginDraw(){
+                mousePress = true;
+            }
+            
+            function drawing(event){
+                event.preventDefault();
+                if(!mousePress)return;
+                var xy = pos(event);
+                if(last!=null){
+                    board.beginPath();
+                    board.moveTo(last.x,last.y);
+                    board.lineTo(xy.x,xy.y);
+                    board.stroke();
+                }
+                last = xy;
+                
+            }
+            
+            function endDraw(event){
+                 mousePress = false;
+                 event.preventDefault();
+                 last = null;
+            }
+            
+            function pos(event){
+                var x,y;
+                if(isTouch(event)){
+                    x = event.touches[0].pageX;
+                    y = event.touches[0].pageY;
+                }else{
+                    x = event.offsetX+event.target.offsetLeft;
+                    y = event.offsetY+event.target.offsetTop;
+                }
+//               log('x='+x+' y='+y);
+                return {x:x,y:y};
+            }
+            
+            function log(msg){
+                var log = document.getElementById('log');
+                var val = log.value;
+                log.value = msg+'\n'+val;                
+            }
+            
+            function isTouch(event){
+                var type = event.type;
+                if(type.indexOf('touch')>=0){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            
+            function save(){
+               
+                var dataUrl = canvas.toDataURL();
+
+                img.src = dataUrl;
+            }
+            
+            
+            function clean(){
+                board.clearRect(0,0,canvas.width,canvas.height);
+
+            }
+             
+            board.lineWidth = 4;
+            board.strokeStyle="#333";
+            
+            
+            canvas.onmousedown = beginDraw;
+            canvas.onmousemove = drawing;
+            canvas.onmouseup = endDraw;
+            canvas.addEventListener('touchstart',beginDraw,false);
+            canvas.addEventListener('touchmove',drawing,false);
+            canvas.addEventListener('touchend',endDraw,false);
+        </script>
+</body>
+</html>

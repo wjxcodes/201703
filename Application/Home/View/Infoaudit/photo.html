@@ -1,0 +1,83 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>信息审核列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <!--  微信 开始 -->
+                <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                            <tr>
+                                <th>用户名(注册手机号)</th>
+                                <th>身份证号</th>
+                                <th>持卡人姓名</th>
+                                <th>银行卡预留手机号</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{$user_data['user_name']}</td>
+                                <td>{$user_data['identity']}</td>
+                                <td>{$user_data['u_name']}</td>
+                                <td>{$user_data['bank_tel']}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                     <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                            <tr>
+                                <th>身份证照片</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="height:auto;width:33%; float: left;"><img id="target1" style=" width: 100%; height: auto; margin: 0 auto;" src="__ROOT__/Uploads/{$user_data['identity_front']}"></td>
+                                <td style="height:auto;width:33%; float: left; margin: 0 auto;"><img id="target2" style=" width: 100%; height: auto; margin: 0 auto;"  src="__ROOT__/Uploads/{$user_data['identity_reverse']}"></td>
+                                <td style="height:auto;width:33%; float: right;"><img id="target3" style=" width: 100%; height: auto; margin: 0 auto;"  src="__ROOT__/Uploads/{$user_data['self_portrait']}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+<script>
+    window.onload = function(){
+      var current = 0;
+      document.getElementById('target1').onclick = function(){
+          current = (current+90)%360;
+          this.style.transform = 'rotate('+current+'deg)';
+      document.getElementById('target2').onclick = function(){
+          current = (current+90)%360;
+          this.style.transform = 'rotate('+current+'deg)';
+          }
+      document.getElementById('target3').onclick = function(){
+          current = (current+90)%360;
+          this.style.transform = 'rotate('+current+'deg)';
+          }
+      }
+    };
+</script>
+</html>

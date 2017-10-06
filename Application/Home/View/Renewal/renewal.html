@@ -1,0 +1,94 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>续期还款</h5>
+                  <!--<a href="{:U('Home/Examine/export')}">  <button type="button" class="btn btn-primary btn-sm" style="float:right" >导出</button></a>-->
+                </div>
+                <div class="ibox-content">
+
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>手机号(用户名)</th>
+                            <th>持卡人姓名</th>
+                            <th>银行卡绑定手机号</th>
+                            <th>身份证号</th>
+                            <th>银行卡号</th>
+                            <th>借款时间</th>
+                            <th>续期日期</th>
+                            <th>实际还款时间</th>
+                            <th>续期到期时间</th>
+                            <th>续期天数</th>
+                            <th>续期综合费用</th>
+                            <th>续期订单号</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="info" id="vo">
+                                <tr>
+                                    <td><a href="__ROOT__/index.php/Home/Examine/credit?id={$vo['user_name']}&open_id={$vo['open_id']}">{$vo['user_name']}</a></td>
+                                    <td>{$vo['u_name']}</td>
+                                    <td>{$vo['bank_tel']}</td>
+                                    <td>{$vo['identity']}</td>
+                                    <td>{$vo['bank_card']}</td>
+                                    <td>{$vo['pay_time']|date= "Y-m-d H:i",###}</td>
+                                    <td>{$vo['repayment_time']|date= "Y-m-d H:i",###}</td>
+                                    <td>
+                                        <if condition="($vo['loan_time'] eq 1)">
+                                            {$vo['pay_time']|original1}
+                                        <elseif condition="($vo['loan_time'] eq 2)" />
+                                            {$vo['pay_time']|original2}
+                                        </if>
+                                    </td>
+                                    <td>
+                                        <!-- 申请续期的天数 -->
+                                       <if condition="($vo['renewal_days'] eq 7) && ($vo['loan_time'] eq 1)">
+                                            {$vo['pay_time']|res1}
+                                        <elseif condition="($vo['renewal_days'] eq 14) && ($vo['loan_time'] eq 2)" />
+                                            {$vo['pay_time']|res2}
+                                        <elseif condition="($vo['renewal_days'] eq 7) && ($vo['loan_time'] eq 2)" />
+                                            {$vo['pay_time']|res3}
+                                        </if> 
+                                    </td>
+                                    <td>{$vo['renewal_days']}天</td>
+                                    <td>{$vo['pay_money']}元</td>
+                                    <td>{$vo['renewal_order']}</td>
+                                </tr>
+                        </volist>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <div class="pagination">{$page}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

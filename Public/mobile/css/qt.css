@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#fff; font-family: Verdana, 
+Arial, sans-serif; font-size:24px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+
+.qing { clear:both; height:0px; width:100%; font-size:1px; line-height:0px;
+ visibility:hidden; overflow:hidden; }
+/*共同样式 end*/
+
+.logo{ margin-top:100px; margin-bottom:100px;}
+.sr{ width:90%; height:100px; margin:0 auto; border:2px solid #45b7fd; border-radius:15px; margin-bottom:80px;   box-shadow:0px 6px 10px #a2c8e0; /*底边阴影*/}
+.sr li{ float:left;}
+.sr .sr-tu{ width:10%; height:100px; margin-top:14px;}
+.sr .sr-kuang{ width:90%;}
+.sr .sr-kuang input{ width:100%; height:100px; line-height:100px; text-align:left; text-indent:2em; border:none;  border-radius:15px; font-size:42px;}
+
+.dian-zc{ float:left; margin-left:5%; font-size:30px; margin-top:-40px; margin-bottom:80px; color:#45b7fd;}
+.dian-wjmm{ float:right; margin-right:5%; font-size:30px; margin-top:-40px; margin-bottom:80px; color:#f00;}
+
+
+.anjian{ width:90%; height:auto; margin:0 auto; }
+.anjian input{ width:100%; height:100px; border-radius:15px; border:none; background-color:#45b7fd; font-size:40px; color:#fff;   box-shadow:0px 6px 10px #a2c8e0; /*底边阴影*/}
+
+.di-wen{ text-align: center; display:block; font-size:36px; margin:0 auto;}
+.di-wen span{ font-size:48px; color:#45b7fd;}
+
+
+
+
+
+
+
+/*------------------登录　　end---------------*/
+
+
+
+.yzm{ width:90%; height:auto; margin:0 auto;}
+.yzm .zuo{ float:left; width:50%; height:100px; border:2px solid #45b7fd; border-radius:15px; margin-bottom:80px; box-shadow:0px 6px 10px #a2c8e0; /*底边阴影*/}
+.yzm .zuo .yzm-tu{ width:20%; float:left; margin-top:14px;}
+.yzm .zuo .yzm-sr input{ float:left; width:80%; line-height:100PX; font-size:42PX; height:100px; border:none; border-radius:15px; text-align:center;}
+
+.yzm .you{ float:right; width:45%; height:100px; border:2px solid #45b7fd; border-radius:15px; margin-bottom:80px; box-shadow:0px 6px 10px #a2c8e0; /*底边阴影*/ }
+.yzm .you input{ width:100%; height:100px; border:none; font-size:42px; line-height:100px; background-color:#fff; border-radius:15px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

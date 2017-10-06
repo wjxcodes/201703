@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="msapplication-tap-highlight" content="no">
+<!-- 适应移动端end -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<!-- 删除苹果默认的工具栏和菜单栏 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!-- 设置苹果工具栏颜色 -->
+<meta name="format-detection" content="telphone=no, email=no" />
+<!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit">
+<!-- 避免IE使用兼容模式 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+<meta name="HandheldFriendly" content="true">
+<!-- 微软的老式浏览器 -->
+<title>个人信息</title>
+<link href="__ROOT__/Public/mobile/css/geren.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__ROOT__/Public/mobile/js/jq-5.js"></script>
+<script type="text/javascript" src="__ROOT__/Public/mobile/js/jquery-1.11.1.js"></script>
+<script language="javascript" src="__ROOT__/Public/mobile/js/pcasunzip.js" charset="gb2312"></script>
+<script type="text/javascript">
+function getValue(){ 
+var getpro=document.getElementById("province").value;
+var getcity=document.getElementById("city").value;
+var getarea=document.getElementById("area").value;
+alert(getpro+" "+getcity+" "+getarea);
+ }
+</script>
+</head>
+
+<body style="background-color:#fff;" >
+ <div class="ps" style="background-color:#F2F2F2;" >
+<div style="text-align:center; font-size:12px; color:#45B7FD;">请务必准确填写以下要素，否则审核将不予通过</div>
+</div> 
+
+  
+<form action="__URL__/detail" method="post" enctype="multipart/form-data" onSubmit="return login();" id="loginForm">
+
+
+<div class="xm">
+  <ul class="xin">
+    <li class="z1">姓名：</li>
+    <li class="z2" ><input type="text" placeholder="请填写身份证上的姓名"  name="yonghuming" id="yonghuming"/ value="{$user_data.u_name}" <if condition="$loan_data['is_loan'] eq 1 OR $loan_data['loan_num'] egt 1 OR $user_data['identity'] neq ''">readonly="readonly"<else/></if>/></li>
+  </ul>
+</div>
+
+
+
+<!--自拍照：<input type="file" name="self_portrait" id="self_portrait"/>
+<br>
+身份证正面照：<input type="file" name="identity_front" id="identity_front"/>
+<br>
+身份证反面：<input type="file" name="identity_reverse" id="identity_reverse"/>
+<br>-->
+<div class="qing"></div>
+
+<div class="sfz">
+  <ul class="xin">
+    <li class="z1">身份证号：</li>
+    <li class="z2">
+      <input type="text" placeholder="请填写正确的身份证号码"  name="shenfenzheng" id="shenfenzheng" value="{$user_data.identity}" <if condition="$loan_data['is_loan'] eq 1 OR $loan_data['loan_num'] egt 1 OR $user_data['identity'] neq ''">readonly="readonly"<else/></if>/></li>
+  </ul>
+</div>
+
+<div class="qing"></div>
+<!--工作信息：
+<select name="job_infor">
+  <option>上班族</option>
+  <option>自由职业</option>
+  <option>学生</option>
+</select>
+<br>-->
+<!-- <div class="xl">
+  <ul class="xin">
+    <li class="z1">学历：</li>
+    <li class="z2">
+      <select  id="select_k1" class="xla_k" name="xueli">
+        <option value="中专" <if condition="$data.education eq '中专'">selected = "selected"<else/></if>>中专及以下</option>
+        <option value="大专" <if condition="$data.education eq '大专'">selected = "selected"<else/></if>>大专</option>
+        <option value="本科" <if condition="$data.education eq '本科'">selected = "selected"<else/></if>>本科</option>
+        <option value="研究生" <if condition="$data.education eq '研究生'">selected = "selected"<else/></if>>研究生</option>
+        <option value="博士" <if condition="$data.education eq '博士'">selected = "selected"<else/></if>>博士</option>
+      </select>
+    </li>
+  </ul>
+</div>   -->
+
+
+<!-- 地址 -->
+<div style="width:90%; height:auto; margin:0 auto; margin-top:10px; margin-bottom:10px;" >
+<div style=" text-align:left; font-size:18px; margin-bottom:10px;">现居住地：</div>
+<select name="user.province" id="province" style="width:30%; height:30px; float:left; text-indent: 0.7em;  font-size:10px;  border:1px solid #45b7fd; background: none; "></select>
+<select name="user.city" id="city" style="width:30%; height:30px;  margin-left:5%; font-size:10px; text-indent: 0.7em;  border:1px solid #45b7fd; background: none;  "></select>
+<select name="user.area" id="area" style="width:30%; height:30px; margin-left:5%; float:right; font-size:10px;  text-indent: 0.7em;   border:1px solid #45b7fd; background: none;  "></select><br>
+</div>
+<div class="qing"></div>
+<script language="javascript" defer>
+new PCAS("user.province","user.city","user.area","{$addres[0]}","{$addres[1]}","{$addres[2]}");
+</script>
+
+<div class="sfz" style=" border-top:1px solid #ccc;">
+  <ul class="xin">
+    <li class="z1">详细地址：</li>
+    <li class="z2">
+      <input type="text"  name="addres" id="addres" value="{$addres[3]}" <if condition="$loan_data.is_loan eq 1">readonly="readonly"<else/></if> /></li>
+  </ul>
+</div>
+
+<div style="width:90%; height:auto; margin:0 auto; margin-top:10px; margin-bottom:10px;" >
+<div style=" text-align:left; font-size:18px; margin-bottom:10px;">公司地址：</div>
+<select name="company.province" id="province1" style="width:30%; height:30px; float:left; font-size:10px; text-indent: 0.7em;  border:1px solid #45b7fd; background: none;  background: none;  background: none;  "></select>
+<select name="company.city" id="city1" style="width:30%; height:30px;  margin-left:5%; font-size:10px; text-indent: 0.7em;  border:1px solid #45b7fd; background: none;  background: none;  "></select>
+<select name="company.area" id="area1" style="width:30%; height:30px; margin-left:5%; float:right; font-size:10px; text-indent: 0.7em;   border:1px solid #45b7fd; background: none;  "></select><br>
+</div>
+
+<script language="javascript" defer>
+new PCAS("company.province","company.city","company.area","{$com_addres[0]}","{$com_addres[1]}","{$com_addres[2]}");
+</script>
+
+<div class="sfz" style=" border-top:1px solid #ccc;">
+  <ul class="xin">
+    <li class="z1">详细地址：</li>
+    <li class="z2">
+      <input type="text" name="com_addres" id="com_addres" value="{$com_addres[3]}" <if condition="$loan_data.is_loan eq 1">readonly="readonly"<else/></if> /></li>
+  </ul>
+</div>
+<!-- 地址 -->
+
+
+<br>
+<div class="qing"></div>
+
+<div class="bc">
+  <input type="submit" value="保存" >
+</div>
+
+<div class="dibu">
+  <div class="db-tu"><img src="__ROOT__/Public/mobile/images/grxx_11.png"/></div>
+  <div class="db-zi">银行级数据加密防护</div>
+</div>
+
+</form>
+
+<script type="text/javascript">
+  function login() {
+        var yonghuming=$("#yonghuming").val();
+        var shenfenzheng=$("#shenfenzheng").val();
+        var province=$("#province").val();
+
+        var province1=$("#province1").val();
+        var addres=$("#addres").val();
+        var com_addres=$("#com_addres").val();
+var id_cardx=shenfenzheng.substr(-1);
+        var bstr = shenfenzheng.substring(6,14)
+        
+        var _bir = bstr.substring(0,4)+"-"+bstr.substring(4,6)+"-"+bstr.substring(6,8);
+        var _age=jsGetAge(_bir);
+
+function jsGetAge(strBirthday){         
+    var returnAge;  
+    var strBirthdayArr=strBirthday.split("-");  
+    var birthYear = strBirthdayArr[0];  
+    var birthMonth = strBirthdayArr[1];  
+    var birthDay = strBirthdayArr[2];  
+    d = new Date();  
+    var nowYear = d.getFullYear();  
+    var nowMonth = d.getMonth() + 1;  
+    var nowDay = d.getDate();  
+    if(nowYear == birthYear){  
+        returnAge = 0;//同年 则为0岁  
+    }  
+    else{  
+        var ageDiff = nowYear - birthYear ; //年之差  
+        if(ageDiff > 0){  
+            if(nowMonth == birthMonth) {  
+                var dayDiff = nowDay - birthDay;//日之差  
+                if(dayDiff < 0)  
+                {  
+                    returnAge = ageDiff - 1;  
+                }  
+                else  
+                {  
+                    returnAge = ageDiff ;  
+                }  
+            }  
+            else  
+            {  
+                var monthDiff = nowMonth - birthMonth;//月之差  
+                if(monthDiff < 0)  
+                {  
+                    returnAge = ageDiff - 1;  
+                }  
+                else  
+                {  
+                    returnAge = ageDiff ;  
+                }  
+            }  
+        }  
+        else  
+        {  
+            returnAge = -1;//返回-1 表示出生日期输入错误 晚于今天  
+        }  
+    }        
+    return returnAge;//返回周岁年龄       
+} 
+
+
+
+        var age=_age>29||_age<=18;
+      if(yonghuming == "" || yonghuming == null) {
+         alert("请填写姓名");
+         return false;
+        }else if(!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(yonghuming))){
+           alert("请填写正确的姓名");
+           return false;
+      }else if(shenfenzheng == "" || shenfenzheng == null){
+         alert("请填写身份证");
+         return false;
+        }else if(!(/(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$)/.test(shenfenzheng))){
+        alert("请输入正确的身份证号码");
+        return false;
+        }else if(id_cardx==='x'){
+          alert("身份证最后的x请大写");
+          return false; 
+        }else if(age){
+          alert("您的年龄不在我们的贷款范围内");
+          return false; 
+        }else if(province=="" ||province==null ){
+          alert("请填写现居地址");
+          return false; 
+        }else if(addres=="" ||addres==null){
+          alert("请填写现居地址");
+          return false; 
+        }else if(province1=="" ||province1==null){
+          alert("请填写公司地址");
+          return false; 
+        }else if(com_addres=="" ||com_addres==null){
+          alert("请填写公司地址");
+          return false; 
+        }else {
+         return true;
+        }
+        
+  }
+</script>
+</body>
+</html>

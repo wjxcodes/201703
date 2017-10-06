@@ -1,0 +1,148 @@
+
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>用户审核列表</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>姓名</th>
+                            <th>手机号</th>
+                            <th>借款时间</th>
+                            <th>借款次数</th>
+                            <th>借款金额</th>
+                            <th>操作</th>
+                            <th>信息审核</th>
+                            <th>标记</th>
+                            <!-- <th>安融</th> -->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="user_data" id="vo" key="k">
+                                    
+                                    <tr width="100%" border="1" 
+                                        <php> 
+                                            if($vo['zm_score']>650 && $vo['zm_score']<701){
+                                                echo "style='background-color:#02f05c'";
+                                              }elseif($vo['zm_score']>700 && $vo['zm_score']<751){
+                                                echo "style='background-color:#74e701'";
+                                              }elseif($vo['zm_score']>750 && $vo['zm_score']<10000){
+                                                echo "style='background-color:red'";
+                                              }elseif($vo['zm_score']<651){
+                                                
+                                               }
+                                        </php> >
+                                        <td>{$k}</td>
+                                        <td>{$vo['u_name']}</td>
+                                        <td>{$vo['user_name']}</td>
+                                        <td>{$vo['loan_request']|date="Y-m-d H:i",###}</td>
+                                        <td>{$vo['loan_num']}</td>
+                                        <td>{$vo['loan_amount']}</td>
+                                        <td>
+                                            <a href="{:U('Home/Survey/index',array('id'=>$vo['user_name'],'open_id'=>$vo['open_id']))}"  target="view_window"><button>征信</button></a>
+                                            <a href="{:U('Home/apix/tel',array('id'=>$vo['user_name']))}"><button>通讯</button></a>
+                                            <a href="{:U('Home/apix/taobao',array('id'=>$vo['user_name']))}"><button>淘宝</button></a>
+                                            <a href="{:U('Home/apix/jd',array('id'=>$vo['user_name']))}"><button>京东</button></a>
+                                            
+                                        </td>
+                                        <td>
+                                    
+                                    <a href="{:U('Home/Infoaudit/change',array('id'=>$vo['user_id'],'status'=>'2'))}"><button>通过</button></a> |
+                                    <a href="{:U('Home/Infoaudit/change',array('id'=>$vo['user_id'],'status'=>'1'))}"><button>不通过</button></a> |
+                                    <a href="{:U('Home/Infoaudit/change',array('id'=>$vo['user_id'],'status'=>'3'))}"><button>拉黑</button></a>   
+                                        </td>
+
+                                        <td>
+                                            <if condition="$vo['tag'] eq 0">
+
+                                                <button name="tag" id="tag{$vo['user_id']}" value="{$vo['user_id']}">未查看</button>
+                                            <elseif condition="$vo['tag'] eq 1"/>
+                                                <button>标记不通过</button>
+                                            </if>
+                                        </td>
+                                        <!-- <td><a href="{:U('Home/anrong/index',array('id'=>$vo['user_name']))}"><button>安融</button></a></td> -->
+                                </tr>
+                                </volist>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+<script type="text/javascript">
+
+$(":button[name=tag]").click(function(){
+    var user_id=$(this).val();
+    $.ajax({
+        type:"POST",
+        dataType:'json',
+        url:"{:U('Home/Infoaudit/tag')}",
+        data:{id:user_id},
+        success:function(data){
+            var id="tag"+data['id'];
+            if(data['state']=='ok'){
+                $("#"+id+"").text("标记不通过");
+            }else{
+                alert("失败了");
+            }
+        }
+    });
+});
+
+
+function require() {
+      $.ajax({  
+                type:"POST",  
+                dataType:"json",  
+                url:"{:U('Home/Infoaudit/checkNotify')}",  
+                data:{tel:1},
+                success:function(data){
+                    if (data !='error') {
+                        var audio = document.createElement("audio");
+                            audio.src = "__ROOT__/Public/MP3/02.mp3";
+                            audio.play();
+                        console.log(data);
+                        for (var i = 0; i < data.length; i++) {
+                            $("#mytable").append('<tr><td>'+data[i]['user_name']+'</td><td>'+data[i]['create_time']+'</td><td>'+data[i]['linkman_name']+'</td><td>'+data[i]['linkman_tel']+'</td><td>'+data[i]['bank_name']+'</td><td>'+data[i]['bank_tel']+'</td><td>'+data[i]['bank_card']+'</td><td>'+data[i]['identity']+'</td><td><a href="#"><i class="text-navy"></i><a href="#">通过</a> | <a href="#">不通过</a></a></td></tr>'); 
+                        }
+                    }
+                }
+            }); 
+      setTimeout('require()',3000);
+}
+
+</script>
+</html>

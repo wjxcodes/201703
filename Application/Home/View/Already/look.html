@@ -1,0 +1,55 @@
+ 
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+               <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>总提额:<span style='color: red'></span>{$money}元{$money/100}人</h5>
+
+                            <h5>当天提额:<span style='color: red'></span>{$day_money}元{$day_i}人</h5>
+                        </div>
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                                <tr>
+                                    <td>手机号</td>
+                                    <td>提升额度</td>
+                                    <td>提升前额度</td>
+                                    <td>提升时间</td>
+                                </tr>
+                                <volist name="lines_data" id="vo">
+                                    <tr>
+                                        <td>{$vo['手机号']}</td>
+                                        <td>{$vo['提升额度']}</td>
+                                        <td>{$vo['提升前']}</td>
+                                        <td>{$vo['提升时间']}</td>
+                                    </tr>
+                                </volist>
+                            </table>
+                            
+                            <volist name="time_data" id="vo" >
+                                <a href="__URL__/look?time={$vo}"><button >{$key}</button></a>
+                            </volist>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+    <script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+    <script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,321 @@
+
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+               <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <form action="{:U('Home/Already/statistical')}" method="post" style="float: left; margin-right: 60px;" >
+                                <input placeholder="开始时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="start">
+                                <input placeholder="结束时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="end">
+                                <input type="hidden" name="code" value="1">
+                                <input type="submit"  value="生成记录">
+                            </form>
+                        </div>
+                       
+                        <div class="ibox-title">  
+                           <table width="1000px" height="auto" align="center" style="text-align:center;font-size:15px;color:#000000;" border="1px">
+                                <tr>
+                                    <td rowspan="2" colspan="3">名称</td>
+                                    <td colspan="3">今日合计</td>
+                                    <td colspan="3">过往合计</td>
+                                </tr>
+                                <tr>
+                                    <td>人次</td>
+                                    <td>本金</td>
+                                    <td>利息</td>
+                                    <td>人次</td>
+                                    <td>本金</td>
+                                    <td>利息</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">放款</td>
+                                    <td rowspan="3">放款</td>
+                                    <td>7天</td>
+                                    <td>{$arr['lend_7_ren']}</td>
+                                    <td>{$arr['lend_7_money']}</td>
+                                    <td>{$arr['lend_7_cost']}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>14天</td>
+                                    <td>{$arr['lend_14_ren']}</td>
+                                    <td>{$arr['lend_14_money']}</td>
+                                    <td>{$arr['lend_14_cost']}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>合计</td>
+                                    <td rowspan="2">{$arr['lend_14_ren']+$arr['lend_7_ren']}</td>
+                                    <td>{$arr['lend_7_money']+$arr['lend_14_money']}</td>
+                                    <td>{$arr['lend_7_cost']+$arr['lend_14_cost']}</td>
+                                    <td rowspan="2"></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">合计</td>
+                                    <td colspan="2">{$arr['lend_7_money']+$arr['lend_14_money']+$arr['lend_7_cost']+$arr['lend_14_cost']}</td>
+                                    <td colspan="2"></td>
+                                </tr>
+                            </table>
+                            <br/>            
+                            <table width="1000px" height="auto" align="center" style="text-align:center;font-size:15px;color:#000000;" border="1px">
+                                <tr>
+                                    <td rowspan="5">应收款</td>
+                                    <td rowspan="4">到期应收款</td>
+                                    <td>天数</td>
+                                    <td>人次</td>
+                                    <td>本金</td>
+                                    <td>利息</td>
+                                    <td>人次</td>
+                                    <td>本金</td>
+                                    <td>利息</td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>7天</td>
+                                    <td>{$arr['rece_7_ren']+$arr['not_7_ren']}</td>
+                                    <td>{$arr['rece_7_money']+$arr['not_7_money']}</td>
+                                    <td>{$arr['rece_7_cost']+$arr['not_7_cost']}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>14天</td>
+                                    <td>{$arr['rece_14_ren']+$arr['not_14_ren']}</td>
+                                    <td>{$arr['rece_14_money']+$arr['not_14_money']}</td>
+                                    <td>{$arr['rece_14_cost']+$arr['not_14_cost']}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>合计</td>
+                                    <td rowspan="2">{$arr['rece_14_ren']+$arr['rece_7_ren']+$arr['not_14_ren']+$arr['not_7_ren']}</td>
+                                    <td>{$arr['rece_14_money']+$arr['rece_7_money']+$arr['not_14_money']+$arr['not_7_money']}</td>
+                                    <td>{$arr['rece_14_cost']+$arr['rece_7_cost']+$arr['not_14_cost']+$arr['not_7_cost']}</td>
+                                    <td rowspan="2"></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">合计</td>
+                                    <td colspan="2">{$arr['rece_14_money']+$arr['rece_7_money']+$arr['rece_14_cost']+$arr['rece_7_cost']+$arr['not_14_money']+$arr['not_7_money']+$arr['not_14_cost']+$arr['not_7_cost']}</td>
+                                    <td colspan="2"></td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <table width="1000px" height="auto" align="center" style="text-align:center;font-size:15px;color:#000000;" border="1px">
+                                <tr>
+                                    <td rowspan="20">实收款</td>
+                                    <td rowspan="4">到期实收款</td>
+                                    <td rowspan="2">连连</td>
+                                    <td >7天</td>
+                                    <td >{$arr['ll_normal_7_ren']}</td>
+                                    <td >{$arr['ll_normal_7_money']}</td>
+                                    <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                    <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                </tr>
+                                <tr>
+                                    <td >14天</td>
+                                    <td >{$arr['ll_normal_14_ren']}</td>
+                                    <td >{$arr['ll_normal_14_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">支付宝</td>
+                                    <td >7天</td>
+                                    <td >{$arr['normal_7_ren']}</td>
+                                    <td >{$arr['normal_7_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td >14天</td>
+                                    <td >{$arr['normal_14_ren']}</td>
+                                    <td >{$arr['normal_14_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">续期费用</td>
+                                    <td colspan="2">连连</td>
+                                    <td >{$arr['zfb_renwal_ren']}</td>
+                                    <td >{$arr['zfb_renwal_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">支付宝</td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">逾期费用</td>
+                                    <td colspan="2">连连</td>
+                                    <td >{$arr['ll_overdue_ren']}</td>
+                                    <td >{$arr['ll_overdue_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">支付宝</td>
+                                    <td >{$arr['zfb_overdue_ren']}({$arr['payment_ren']})</td>
+                                    <td >{$arr['zfb_overdue_money']}({$arr['payment']})</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">到期实收款</td>
+                                    <td >{$arr['normal_sum_ren']}</td>
+                                    <td >{$arr['normal_sum_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">到期毛利润</td>
+                                    <td >————</td>
+                                    <td >————</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">提前收款</td>
+                                    <td rowspan="2">连连</td>
+                                    <td >7天</td>
+                                    <td >{$arr['ll_ahead_7_ren']}</td>
+                                    <td >{$arr['ll_ahead_7_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td >14天</td>
+                                    <td >{$arr['ll_ahead_14_ren']}</td>
+                                    <td >{$arr['ll_ahead_14_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">支付宝</td>
+                                    <td >7天</td>
+                                    <td >{$arr['ahead_7_ren']}</td>
+                                    <td >{$arr['ahead_7_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td >14天</td>
+                                    <td >{$arr['ahead_14_ren']}</td>
+                                    <td >{$arr['ahead_14_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">提前收款合计</td>
+                                    <td >{$arr['ahead_sum_ren']}</td>
+                                    <td >{$arr['ahead_sum_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">实收款合计</td>
+                                    <td >{$arr['ahead_sum_ren']+$arr['normal_sum_ren']}</td>
+                                    <td >{$arr['ahead_sum_money']+$arr['normal_sum_money']}</td>
+                                    <td > </td>
+                                    <td > </td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <table width="1000px" height="auto" align="center" style="text-align:center;font-size:15px;color:#000000;" border="1px">
+                                <tr>
+                                    <td rowspan="6">待收款</td>
+                                    <td rowspan="4">待收款</td>
+                                    <td>天数</td>
+                                    <td>人次</td>
+                                    <td>本金</td>
+                                    <td>利息</td>
+                                    <td>人次</td>
+                                    <td>本金</td>
+                                    <td>利息</td>
+                                </tr>
+                                <tr>
+                                    <td>7天</td>
+                                    <td>{$arr['not_7_ren']}</td>
+                                    <td>{$arr['not_7_money']}</td>
+                                    <td>{$arr['not_7_cost']}</td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td>14天</td>
+                                    <td>{$arr['not_14_ren']}</td>
+                                    <td>{$arr['not_14_money']}</td>
+                                    <td>{$arr['not_14_cost']}</td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td>合计</td>
+                                    <td>{$arr['not_7_ren']+$arr['not_14_ren']}</td>
+                                    <td>{$arr['not_14_money']+$arr['not_7_money']}</td>
+                                    <td>{$arr['not_7_cost']+$arr['not_14_cost']}</td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">合计</td>
+                                    <td rowspan="2">{$arr['not_7_ren']+$arr['not_14_ren']}</td>
+                                    <td colspan="2">{$arr['not_14_money']+$arr['not_7_money']+$arr['not_7_cost']+$arr['not_14_cost']}</td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>       
+                                <tr>
+                                    <td colspan="2">逾期费用</td>
+                                    <td colspan="2">{$arr['not_overdue']}</td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>                
+                            </table>
+                            </div>
+                    </div>
+                </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+    <script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+    <script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+    <script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate
+});
+</script>
+</body>
+
+</html>

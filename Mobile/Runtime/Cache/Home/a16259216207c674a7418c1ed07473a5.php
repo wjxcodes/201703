@@ -1,0 +1,30 @@
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no,maximum-scale=1.0, minmum-scale=1.0"/>
+<title>登录</title>
+<link href="/free/Public/mobile/css/qt.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div class="logo"><img src="/free/Public/mobile/images/dl_03.jpg"/></div>
+<ul class="sr">
+<li class="sr-tu"><img src="/free/Public/mobile/images/mm_03.png"/></li>
+<form action="<?php echo U('Home/User/login');?>" method="post">	
+<li class="sr-kuang"><input type="number" name="name" placeholder="请输入手机号码" /></li>
+</ul>
+<div class="qing"></div>
+<ul class="sr">
+<li class="sr-tu"><img src="/free/Public/mobile/images/mm_08.png"/></li>
+<li class="sr-kuang"><input type="password" name="pwd" placeholder="请输入登录密码"/></li>
+</ul>
+<div class="qing"></div>
+<a href="<?php echo U('Home/User/register');?>"><div class="dian-zc">立即注册</div></a> 
+<a href="<?php echo U('Home/User/forget');?>"><div class="dian-wjmm">忘记密码？</div></a>
+<div class="anjian"><input type="submit" value="立即登录" onclick="such()" /></div>
+</form>
+<div class="di-wen" style=" margin-top:404px;">小额贷款找<span>蜻蜓</span>，放款<span>迅速</span>我最行</div>
+</body>
+</html>

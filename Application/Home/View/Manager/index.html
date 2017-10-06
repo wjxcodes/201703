@@ -1,0 +1,76 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>成员列表</h5><a href="addauth"><button>增加权限</button></a>
+                    <a href="add"><button style="float:right">增加</button></a>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>管理员名称</th>
+                            <th>账号</th>
+                            <th>创建管理员时间</th>
+                            <th>修改管理员时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <foreach name="auth_data" item="v">
+                            <tr>
+                                <td>{$v['authname']}</td>
+                                <td>{$v['username']}</td>
+                                <td>{$v['create_time']|date='Y-m-d H:i',###}</td>
+                                <td>{$v['update_time']|date='Y-m-d H:i',###}</td>
+                                <td>
+                                <a href="{:U('Home/Manager/update',array('id'=>$v['id']))}"><button>修改</button></a> 
+                                <a href="{:U('Home/Manager/del',array('id'=>$v['id']))}"><button>删除</button></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>权限</td>
+                                <td colspan="4">
+                                    <volist name="auth_limit_data" id="vo">
+                                        <php> if(in_array( $vo['controller'],$v['new_auth'])){echo $vo['module'].'-';}</php>
+                                    </volist>
+                                </td>
+                            </tr>
+                        </foreach>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <div class="pagination">{$page}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

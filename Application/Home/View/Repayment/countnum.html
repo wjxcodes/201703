@@ -1,0 +1,105 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+
+             <form action="{:U('Home/Repayment/countnum')}" method="post" style="float: left; margin-right: 0px;">
+                <input type="text" name="name" placeholder="请输入手机号或姓名">
+                <input type="hidden" name="code" value="name">
+                <input type="submit" value="提交">
+            </form>
+
+            <form action="{:U('Home/Repayment/countnum')}" method="post" style="float: left; margin-right:0px;" >
+                <input placeholder="开始时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="start">
+                <input placeholder="结束时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="end">
+                <input type="hidden" name="code" value="expire">
+                <input type="submit"  value="还款时间">
+            </form>
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>手机号</th>
+                            <th>姓名</th>
+                            <th>借款时间</th>
+                            <th>借款金额</th>
+                            <th>综合费用</th>
+                            <th>本息</th>
+                            <th>实还款</th>
+                            <th>实收逾期费用</th>
+                            <th>应还时间</th>
+                            <th>分配时间</th>
+                            <th>负责人</th>
+                            <th>还款时间</th>
+                            <th>借款次数</th>
+                            <th>逾期天数</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <volist name="task_data" id="vo" key="k">
+                                    <td>{$k}</td>
+                                    <td>{$vo['user_name']}</td>
+                                    <td>{$vo['u_name']}</td>
+                                    <td>{$vo['loan_request']}</td>
+                                    <td>{$vo['loan_amount']}元</td>
+                                    <td>{$vo['money']-$vo['loan_amount']}元</td>
+                                    <td>{$vo['money']}元</td>
+                                    <td style="color: red">{$vo['repayment_money']}元</td>
+                                    <td>{$vo['ymoney']}元</td>
+                                    <td>{$vo['time']}</td>
+                                    <td>{$vo['create']}</td>
+                                    <td>
+                                        <if condition="($vo['group'] eq 1)">
+                                            杨文庆
+                                        <elseif condition="($vo['group'] eq 2)"/>
+                                            王贺
+                                        <elseif condition="($vo['group'] eq 3)"/>
+                                            蔡浩锋
+                                        <elseif condition="($vo['group'] eq 4)"/>
+                                            张晓妮
+                                        <elseif condition="($vo['group'] eq 5)"/>
+                                            韩福军
+                                        <elseif condition="($vo['group'] eq 6)"/>
+                                            何士豪
+                                        </if>
+                                    </td>
+                                    <td>{$vo['complete']}</td>
+                                    <td>{$vo['loan_num']}</td>
+                                    <td>{$vo['day']}</td>
+                                </tr>
+                            </volist>
+                        </tbody>
+                    </table>
+                    <div class="pagination">{$page}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate
+});
+</script>
+</html>

@@ -1,0 +1,115 @@
+
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+               <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>通过快钱还款:<span style="color: red">{$count}</span>笔</h5>
+                            <h5 style="margin-left:50px;">放款金额总和:<span style="color: red;">{$sum_data['pay_money']}</span>元</h5>
+                            <h5 style="margin-left:50px;">综合费用总和:<span style="color: red;">{$sum_data['shouxufei']}</span>元</h5>
+                            <h5 style="margin-left:50px;">逾期费用总和:<span style="color: red;">{$sum_data['overdue_money']}</span>元</h5>
+                            <br>
+                            <br>
+                            <form action="{:U('Home/Repayment/refund')}" method="post" style="float: left; margin-right: 0px;">
+                                <input type="text" name="name" placeholder="请输入手机号">
+                                <input type="hidden" name="code" value="1">
+                                <input type="submit" value="提交">
+                            </form>
+
+                            <form action="{:U('Home/Repayment/refund')}" method="post" style="float: left; margin-right:0px;" >
+                                <input placeholder="开始时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="start">
+                                <input placeholder="结束时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="end">
+                                <input type="hidden" name="code" value="2">
+                                <input type="submit"  value="放款时间查找">
+                            </form>
+
+                        </div>
+                        <div class="ibox-content">
+
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                                <tr>
+                                    <td>姓名</td>
+                                    <td>手机号</td>
+                                    <td>交易单号</td>
+                                    <td>借款时间</td>
+                                    <td>应还时间</td>
+                                    <td>借款期限</td>
+                                    <td>放款金额</td>
+                                    <td>综合费用</td>
+                                    <td>应还金额</td>
+                                    <td>还款金额</td>
+                                    <td>逾期费用</td>
+                                    <td>还款时间</td>
+                                    <td>还款方式</td>
+                                </tr>
+                                <volist name="record_data" id="vo">
+                                    <tr>
+                                        <td>{$vo['u_name']}</td>
+                                        <td>{$vo['user_name']}</td>
+                                        <td>{$vo['loan_order']}</td>
+                                        <td>{$vo['pay_time']|date="Y-m-d H:i",###}</td>
+                                        <td>{$vo['be_time']|date="Y-m-d H:i",###}</td>
+                                        <td>
+                                            <if condition="($vo['loan_time'] eq 1)">
+                                                <span style="color:#0000FF">7天</span>
+                                            <elseif condition="($vo['loan_time'] eq 2)" />
+                                                <span style="color:#009900">14天</span>
+                                            </if>
+                                            <if condition="($vo['xutime'] neq '') AND ($vo['xutime'] neq 0)">
+                                                <span style="color:#990000">+{$vo['xutime']}天</span>
+                                            </if>
+                                        </td>
+                                        <td>{$vo['pay_money']}</td>
+                                        <td>{$vo['pay_money']*$vo['interest']}</td>
+                                        <td>{$vo['pay_money']+$vo['pay_money']*$vo['interest']}</td>
+                                        <td>{$vo['pay_money']+$vo['pay_money']*$vo['interest']+$vo['over_charges']}</td>
+                                        <td>
+                                            <if condition="$vo['over_charges'] gt 0">
+                                                <span style="color:red">{$vo['over_charges']}元</span>
+                                            <else/>
+                                            </if>
+                                        </td>
+                                        <td>{$vo['repayment_time']|date="Y-m-d H:i",###}</td>
+                                        <td>
+                                            <if condition="($vo['is_kq'] eq 1)">
+                                                <span style="color:#0000FF">快钱</span>
+                                            <elseif condition="($vo['is_kq'] eq 2)" />
+                                                <span style="color:#009900">连连</span>
+                                            <else/>
+                                                <span style="color:#009900">支付宝</span>
+                                            </if>
+                                        </td>
+                                    </tr>
+                                </volist>
+                            </table>
+
+                            <div class="pagination">{$page}</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+    <script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+    <script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no,maximum-scale=1.0, minmum-scale=1.0"/>
+<title>借款详情</title>
+<link href="__ROOT__/Public/mobile/css/jiexq.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript" src="__ROOT__/Public/mobile/js/jquery.js"></script>
+</head>
+
+<body>
+<div class="top">
+<p>借款详情</p>
+</div>
+
+<div class="content">
+<ul class="con_list">
+
+
+<!-- 1.借款时间 -->
+
+  <li class="con_list01" style="background:url(__ROOT__/Public/mobile/css/jiek_05.png) no-repeat;background-position:23px 100px;">
+  <div class="con_li02_l"><p>×</p></div>
+  <div class="con_li02_r">
+
+  <p>
+      <if condition="($overdue_show.day gt 0) AND (($loan_data['is_pay'] eq '0') OR ($loan_data['is_pay'] eq null) OR ($loan_data['is_pay'] eq ''))">
+        <span style="color:red; font-size: 44px;">您已逾期{$overdue_show.day}天</span>
+        <span style="color:red;" >请尽快还款，以免对您的信誉造成不好的影响</span>
+      <else/>
+        借款时间为{$loan_time}天。
+        <span>请在借款期限之内还款</span>
+      </if>
+  </p>
+  </div>
+  </li>
+
+
+
+<!-- 打款状态 -->
+<if condition="($loan_data['is_pay'] eq '0') OR ($loan_data['is_pay'] eq null) OR ($loan_data['is_pay'] eq '')">
+  <li class="con_list02">
+  <div class="con_li02_l"><p>×</p></div>
+  <div class="con_li02_r">
+  <p>打款成功 
+  <span>打至卡号为{$loan_data['bank_card']}中</span>
+  </p>
+<else/>
+  <li class="con_list01" style="background:url(__ROOT__/Public/mobile/css/jiek_03.png) no-repeat;background-position:23px 0; ">
+  <div class="con_li01_l"><p>√</p></div>
+  <div class="con_li01_r">
+  <p>
+    
+    <eq name="dueday" value="1">
+      {$loan_data['is_pay']|date="Y-m-d",###}
+    <else/>
+      {$loan_data['is_pay']|date="Y-m-d H:i:s",###}
+    </eq>
+    打款成功 
+  <span>打至卡号为{$loan_data['bank_card']}中</span>
+  </p>
+</if>
+  </div>
+  </li>
+
+
+
+
+<!-- 审核状态 -->
+<if condition="($loan_data['maudit'] neq '2')">
+  <li class="con_list02">
+  <div class="con_li02_l"><p>×</p></div>
+  <div class="con_li02_r">
+<else/>
+  <li class="con_list01" style="background:url(__ROOT__/Public/mobile/css/jiek_03.png) no-repeat;background-position:23px 0; ">
+  <div class="con_li01_l"><p>√</p></div>
+  <div class="con_li01_r">
+</if>
+
+  <p>审核通过 
+  <span>恭喜通过风控审核</span>
+  </p>
+  </div>
+  </li>
+
+
+
+
+<!-- 默认提交申请 -->
+<li class="con_list03" style="background:url(__ROOT__/Public/mobile/css/jiek_03.png) no-repeat;background-position:23px -100px;">
+<div class="con_li01_l"><p>√</p></div>
+<div class="con_li01_r">
+<p>{$loan_data['loan_request']|date="Y-m-d H:i:s",###}申请提交成功 
+<span>申请借款{$loan_data['loan_amount']}元，期限{$loan_time}天。
+</span>
+<span>交易号：{$loan_data['loan_order']}
+</span>
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div class="qing"></div>
+
+
+
+<if condition="($loan_data['is_pay'] eq '0') OR ($loan_data['is_pay'] eq '') OR ($loan_data['is_pay'] eq null)">
+<else/>
+  <div class="cot">
+  <ul class="cot_co">
+      <li><p>还款日期截止
+      <span>{$overdue_show.time|date="Y-m-d",###}</span>
+      </p>
+      </li>
+
+        <if condition="$overdue_show.day gt 0">
+          <li><p>您已逾期 {$overdue_show.day}天</p></li>
+          <li><p>逾期费用为 {$overdue_show.overdue_money}元</p></li>
+        </if>     
+      <li><p>借款金额金额
+      <span>{$loan_data['loan_amount']}元</span>
+      </p>
+      </li>
+
+      <li><p>打款日期
+      <span>{$loan_data['is_pay']|date="Y-m-d",###}</span>
+      </p>
+      </li>
+
+  </ul> 
+  </div>
+
+  <div class="qing" style="height: 150px;"></div>
+
+  <div class="di" style="margin: 0 auto;">
+    <if condition="$overdue_show.day gt 0">
+    <else/>
+      <!--   <div class="di-zuo">
+           <a  href="__ROOT__/mobile.php/home/repay/renewal">
+            <input type="button" value="申请续期"/>
+           </a>
+      </div> -->
+    </if>
+    <div  class="di-you" style=" width: 80%; margin-left: 10%;">
+    <a href="__URL__/../repay/index">
+      <input type="button" value="立即还款" />
+    </a>
+    </div>
+  </div>
+</if>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[ 2017-09-30T15:50:01+08:00 ] 27.42.106.62 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '15992688831' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('15992688831','836fc30934bea166e2cedb550bec3ca1','1506757801')
+ERR: 1062:Duplicate entry '15992688831' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('15992688831','836fc30934bea166e2cedb550bec3ca1','1506757801')
+
+[ 2017-09-30T16:36:05+08:00 ] 183.214.13.248 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-09-30T16:36:12+08:00 ] 183.214.13.248 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+

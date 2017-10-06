@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size:12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+body{ background-color:#fff;}
+.ding{ width:100%; height:30px; line-height:30px; background-color:#45b7fd; color:#FFF; font-size:1.2em;}
+.ding div{ width:92%; margin:0 auto; text-align:left;}
+
+/*ding*/
+
+.bj{ width:100%; height: auto;}
+.jindu{ width:92%; height:auto; margin:0 auto;}
+.jdt{ width:8%; height:auto; float:left;}
+.jdt ul li{ height:40px; padding-top:20px;}
+.jdt ul li .yuan,.yuan1,.yuan2,.yuan3{ width:20px; height:20px; border-radius:10px; background-color:#45b7fd; margin:0 auto;}
+.jdt ul li .xian{ width:2px; height:60px; margin:0 auto; background-color:#45b7fd;}
+
+.xian1,.xian2{  width:2px; height:60px; margin:0 auto; background-color:#45b7fd;}
+
+.x1{ width:100%; height:10px; background-color:#f2f2f2;}
+
+.zi{ width:92%; float:right; height:auto;}
+.zi ul li{ height:60px; font-size:1em; text-align:left;}
+.zi ul li p{ padding-top:10px; color:#333;}
+.zi ul li span{ font-size:1.4em; color:#333;}
+/*jindu*/
+
+
+.xx{ width:100%; height:auto;}
+.xx .xinxi{ width:92%; height:auto; margin:0 auto; text-align:left; padding-top:10px; padding-bottom:10px; font-size:1.4em;}
+.xinxi a{ color:#45b7fd}
+
+
+
+.xinxi1{ width:92%; height:auto; margin:0 auto; text-align:left;padding-top:10px; padding-bottom:10px; font-size:1.4em;}
+
+
+.di{ width:100%; height:auto; margin:0 auto; position:fixed; bottom:20px;}
+.di div{ float:left; width:50%; height:30px; margin:0 auto;}
+.di input{ width:80%; height:30px; line-height:30px; border-radius:15px;border:none; background-color:#45b7fd; color:#FFF;}
+
+

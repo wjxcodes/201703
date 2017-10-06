@@ -1,0 +1,103 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>预催收列表</h5>
+                     <h5 style="margin-left:50px;">预催收人数:<span style="color: red">{$pre_sum}</span>人</h5>
+                </div>
+                <div class="ibox-title">
+                    <a style="margin-left:10%;" href="{:U('Home/Pre/note_template',array('code'=>'1'))}"><button>预催收短信模板</button></a>
+                    <a style="margin-left:10%;" href="{:U('Home/Pre/export_pre')}"><button>导出预催收名单</button></a>
+                    <a style="margin-left:10%;" href="{:U('Home/Overdue/precollection')}"><button>发送预催收短信</button></a>
+                    <a style="margin-left:10%;" href="{:U('Home/Overdue/precoll')}"><button>发送预催收微信</button></a>
+                </div>
+                <div class="ibox-content">
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>手机号(用户名)</th>
+                            <th>持卡人姓名</th>
+                            <th>银行卡绑定手机号</th>
+                            <th>身份证号</th>
+                            <th>银行卡号</th>
+                            <th>借款金额</th>
+                            <th>打款时间</th>
+                            <th>借款期限</th>
+                            <th>到期时间</th>
+                            <th>逾期天数</th>
+                            <th>本息</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="arr" id="vo" key="k">
+                                    <tr>
+                                        <td>{$k}</td>
+                                        <td>
+                                            <a href="__ROOT__/index.php/Home/Pre/credit?id={$vo['user_name']}&open_id={$vo['open_id']}">{$vo['user_name']}</a>
+                                        </td>
+                                        <td>{$vo['bank_name']}</td>
+                                        <td><a href="{:U('Home/survey/index',array('id'=>$vo['user_name'],'open_id'=>$vo['open_id']))}">{$vo['bank_tel']}</a></td>
+                                        <td><a href="__ROOT__/index.php/Home/Overdue/zhengxin?user_id={$vo['user_id']}">{$vo['identity']}</a></td>
+                                        <td>{$vo['bank_card']}</td>
+                                        <!-- 打款金额 -->
+                                        <td>{$vo['loan_amount']}元</td>
+                                        <td>{$vo['is_pay']|date="Y-m-d H:i",###}</td>
+
+                                        <td>
+                                            <span 
+                                             <if condition="($vo['loan_time'] eq 7)">
+                                             style="color:#0000FF"
+                                             <elseif condition="($vo['loan_time'] eq 14)" />
+                                             style="color:#009900"
+                                             </if>
+                                            >
+                                               {$vo['loan_time']}天
+                                            </span>
+                                            <if condition="($vo['renewal_days'] neq '') AND ($vo['renewal_days'] neq 0)">
+                                               <span style="color:#990000">+{$vo['renewal_days']}天</span>
+                                            </if>
+                                        </td>
+                                        <!-- 到期时间 -->
+                                        <td>
+                                            {$vo['due_time']|date="Y-m-d H:i",###}
+                                        </td>
+
+                                        <td>{$vo['day']}天</td>
+                                        <td>{$vo['shouxufei']+$vo['loan_amount']}</td>
+                                </tr>
+                                </volist>
+                        </tbody>
+                    </table>
+                    <div class="pagination">{$page}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate
+});
+</script>
+</html>

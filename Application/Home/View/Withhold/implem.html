@@ -1,0 +1,75 @@
+ 
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+               <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>姓名</th>
+                                    <th>银行卡绑定手机号</th>
+                                    <th>银行卡号</th>
+                                    <th>放款时间</th>
+                                    <th>签约编号</th>
+                                    <th>签约金额</th>
+                                    <th>签约时间</th>
+                                    <th>单号更新</th>
+                                    <th>订单状态</th>
+                                    <th>扣款状态</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="loan_info" item="v" key="k">
+                                <tr>
+                                    <td>{$k+1}</td>
+                                    <td>{$v['u_name']}</td>
+                                    <td>{$v['user_name']}</td>
+                                    <td>{$v['bank_card']}</td>
+                                    <td>{$v['loan_time']}</td>
+                                    <td>{$v['repayment_no']}</td>
+                                    <td>{$v['query_money']}元</td>
+                                    <td>{$v['sign_time']}</td>
+                                    <td>{$v['update_time']}</td>
+                                    <td>{$v['result']}</td>
+                                    <td>
+                                        <if condition="($v['lev_sign'] eq 1)">
+                                            <button style="color: blue"><b>扣除成功</b></button>
+                                        <elseif condition="($v['lev_sign'] eq 2)" />
+                                            <button style="color: black"><b>主动还款</b></button>
+                                        <elseif condition="($v['lev_sign'] eq 3)" />
+                                            <button style="color: orange"><b>续期成功</b></button>
+                                        <elseif condition="($v['lev_sign'] eq '')" />
+                                            <button style="color: red"><b>等待执行</b></button>
+                                        </if>
+                                    </td>
+                                </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                            <div class="pagination">{$page}</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+    <script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+    <script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

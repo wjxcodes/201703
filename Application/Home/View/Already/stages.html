@@ -1,0 +1,74 @@
+ 
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+               <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title" id="sumtext">
+                            
+                        </div>
+                        <div class="ibox-title">
+                        <div class="ibox-content">
+                            <if condition="$stages_data[0] neq ''">
+                                <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                                    <tr>
+                                        <td>还款金额</td>
+                                        <td>支付宝单号</td>
+                                        <td>创建人</td>
+                                        <td>创建时间</td>
+                                    </tr>
+                                    <volist name="stages_data" id="vo">
+                                        <tr>
+                                            <td>{$vo['money']}</td>
+                                            <td>{$vo['zfb_order']}</td>
+                                            <td>{$vo['create_per']}</td>
+                                            <td>{$vo['create_time']|date="Y-m-d",###}</td>
+                                        </tr>
+                                    </volist>
+                                </table>
+                            </if>
+
+                            <form class="form-horizontal m-t" id="commentForm" action="{:U('Home/Already/stages',array('order'=>$order))}" method="post">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label">支付宝单号：</label>
+                                    <div class="col-sm-2">
+                                        <input id="cname" name="zfb_order" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label">还款金额：</label>
+                                    <div class="col-sm-2">
+                                        <input id="cname" name="money" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-1">
+                                        <button class="btn btn-primary" type="submit">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+                         
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+    <script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+    <script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+
+</html>

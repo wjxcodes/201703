@@ -1,0 +1,51 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+             <h1>
+                    已使用 {$data['sum_lines']}元
+                </h1>
+                <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                    <tr>
+                        <td>手机号</td>
+                        <td>额度</td>
+                        <td>创建时间</td>
+                        <td>使用</td>
+
+                    </tr>
+                    <volist name="coupons_data" id="vo">
+                        <tr>
+                            <td>{$vo['user_name']}</td>
+                            <td>{$vo['lines']}</td>
+                            <td>{$vo['create_time']|date="Y-m-d H:i:s",###}</td>
+                            <td>{$vo['is_use']}</td>
+                        </tr>
+                    </volist>    
+                </table>
+                
+               <!--  <div class="pagination">{$page}</div> -->
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+
+</html>

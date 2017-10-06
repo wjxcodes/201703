@@ -1,0 +1,34 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size: 12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+
+
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+
+body{ background-color:#f2f2f2;}
+
+.jilu{ width:100%; height:auto;}
+.jilu ul{ border-bottom:3px solid #ddd; height:200px; background-color:#fff; }
+.jilu ul li{ float:left;}
+.zuo-zi{ font-size:45px; margin-top:40px; margin-left:50px; text-align:left;}
+.zuo-zi p{ font-size:36px; color:#999;}
+.zhong-zi{ font-size:40px; color:#ff8003; line-height:200px; margin-left:40%; }
+.jilu ul .tu{ float:right; margin-top:80px; margin-right:50px;}
+
+
+.zhong-zi1{ font-size:40px; color:#b0b0b0; line-height:200px; margin-left:40%; }
+
+
+

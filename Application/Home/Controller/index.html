@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--逾期表-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>主页</title>
+     <link href="__ROOT__/Public/css/page.css?v=3.3.6" rel="stylesheet">
+    <link href="__ROOT__/Public/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="__ROOT__/Public/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="__ROOT__/Public/css/animate.min.css" rel="stylesheet">
+    <link href="__ROOT__/Public/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden" onload="javascript:return require();">
+<div id="wrapper">
+    <!--左侧导航开始-->
+         <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="nav-close"><i class="fa fa-times-circle"></i>
+        </div>
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <span><img alt="image" class="img-circle" src="__ROOT__/Public/img/free.jpg" /></span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                               <span class="block m-t-xs"><strong class="font-bold">蜻蜓科技</strong></span>
+                                <span class="text-muted text-xs block"><?php  echo session('aname');?></span>
+                                </span>
+                        </a>
+                    </div>
+                    <div class="logo-element">蜻蜓
+                    </div>
+                </li>
+                <if condition="$Think.session.status eq 1">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">管理员</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Manager/index')}" data-index="0">管理员列表</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Manager/add')}">添加管理员</a>
+                        </li>
+                    </ul>
+
+                </li>
+                    <li>
+                    <a href="#">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-label">注册用户</span>
+                    <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Register/index')}" data-index="0">注册用户列表</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Register/imperfect')}">信息未完善用户表</a>
+                        </li>
+                    </ul>
+                    </li>
+                     <li>
+                        <a href="{:U('Home/Infoaudit/index')}"><i class="fa fa-picture-o"></i> <span class="nav-label">信息审核</span><span class="fa arrow"></span></a>
+                </li>
+
+                <li>
+                    <a href="{:U('Home/Credit/credit')}"><i class="fa fa-picture-o"></i> <span class="nav-label">征信记录表</span><span class="fa arrow"></span></a>
+                </li>
+                    <li>
+                    <a href="{:U('Home/Examine/index')}"><i class="fa fa-desktop"></i> <span class="nav-label">打款金额审核</span><span class="fa arrow"></span></a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">已审核</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Audited/index')}" data-index="0">审核通过</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Audited/npass')}">审核未通过</a>
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="{:U('Home/Pending/index')}"><i class="fa fa-flask"></i> <span class="nav-label">待放款</span><span class="fa arrow"></span></a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Already/index')}"><i class="fa fa-picture-o"></i> <span class="nav-label">已放款</span><span class="fa arrow"></span></a>
+                </li>
+                      <li>
+                    <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">续期还款</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Renewal/index')}" data-index="0">续期支付宝到账</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Renewal/renewal')}">续期快钱到账</a>
+                        </li>
+                    </ul>
+                </li>
+              <li>
+                        <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">已还款记录</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">         
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Repayment/kq')}" data-index="0">快钱还款</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Repayment/zfb')}">支付宝还款</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li>
+                        <a href="{:U('Home/Overdue/index')}"><i class="fa fa-picture-o"></i> <span class="nav-label">逾期记录</span><span class="fa arrow"></span></a>
+                    </li>
+                    <elseif condition="$Think.session.status eq 2" />
+                <li>
+                    <a href="{:U('Home/Examine/index')}"><i class="fa fa-desktop"></i> <span class="nav-label">打款金额审核</span><span class="fa arrow"></span></a>
+                </li>
+                 <li>
+                    <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">续期还款</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Renewal/index')}" data-index="0">续期支付宝到账</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Renewal/renewal')}">续期快钱到账</a>
+                        </li>
+                    </ul>
+                </li>
+              <li>
+                        <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">已还款记录</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">         
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Repayment/kq')}" data-index="0">快钱还款</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Repayment/zfb')}">支付宝还款</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                        <a href="{:U('Home/Overdue/index')}"><i class="fa fa-picture-o"></i> <span class="nav-label">逾期记录</span><span class="fa arrow"></span></a>
+                    </li>
+                <elseif condition="$Think.session.status eq 3"/>
+                <li>
+                        <a href="{:U('Home/Infoaudit/index')}"><i class="fa fa-picture-o"></i> <span class="nav-label">信息审核</span><span class="fa arrow"></span></a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Credit/credit')}"><i class="fa fa-picture-o"></i> <span class="nav-label">征信记录表</span><span class="fa arrow"></span></a>
+                </li>
+                <elseif condition="$Think.session.status eq 4"/>
+                <li>
+                    <a href="{:U('Home/Credit/credit')}"><i class="fa fa-picture-o"></i> <span class="nav-label">征信记录表</span><span class="fa arrow"></span></a>
+                </li>
+                   <li>
+                    <a href="{:U('Home/Examine/index')}"><i class="fa fa-desktop"></i> <span class="nav-label">打款金额审核</span><span class="fa arrow"></span></a>
+                </li>
+                <elseif condition="$Think.session.status eq 5"/>
+                     <li>
+                    <a href="{:U('Home/Pending/index')}"><i class="fa fa-flask"></i> <span class="nav-label">待放款</span><span class="fa arrow"></span></a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Already/index')}"><i class="fa fa-picture-o"></i> <span class="nav-label">已放款</span><span class="fa arrow"></span></a>
+                </li>
+                      <li>
+                    <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">续期还款</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Renewal/index')}" data-index="0">续期支付宝到账</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Renewal/renewal')}">续期快钱到账</a>
+                        </li>
+                    </ul>
+                </li>
+              <li>
+                        <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">已还款记录</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">         
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Repayment/kq')}" data-index="0">快钱还款</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Home/Repayment/zfb')}">支付宝还款</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li>
+                        <a href="{:U('Home/Overdue/index')}"><i class="fa fa-picture-o"></i> <span class="nav-label">逾期记录</span><span class="fa arrow"></span></a>
+                    </li>
+                    </if>
+            </ul>
+        </div>
+    </nav>
+    <!--左侧导航结束-->
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>逾期列表</h5>
+                    <!--<h5>逾期未还:<span style="color: red">{$count}</span>笔</h5>-->
+                  <!--<a href="{:U('Home/Overdue/export')}"><button type="button" class="btn btn-primary btn-sm" style="float:right" >导出</button></a>-->
+                  <a style="margin-left:80%;" href="{:U('Home/Overdue/precollection')}"><button>预催收</button></a>
+                  <a style="float:right;" href="{:U('Home/Overdue/collection')}"><button>逾期催收</button></a>
+                </div>
+                <div class="ibox-content">
+
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>手机号(用户名)</th>
+                            <th>持卡人姓名</th>
+                            <th>银行卡绑定手机号</th>
+                            <th>身份证号</th>
+                            <th>银行卡号</th>
+                            <th>借款金额</th>
+                            <th>打款金额</th>
+                            <th>打款时间</th>
+                            <th>借款期限</th>
+                            <th>续期天数</th>
+                            <th>到期时间</th>
+                            <th>逾期天数</th>
+                            <th>（本息+逾期利息）金额</th>
+                            <th>催收短信</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="arr" id="vo" key="k">
+                                    <tr>
+                                        <td>{$k}</td>
+                                        <td>{$vo['user_name']}</td>
+                                        <td>{$vo['bank_name']}</td>
+                                        <td>{$vo['bank_tel']}</td>
+                                        <td>{$vo['identity']}</td>
+                                        <td>{$vo['bank_card']}</td>
+                                        <td>{$vo['loan_amount']}元</td>
+                                        <!-- 打款金额 -->
+                                        <td>{$vo['money']}元</td>
+                                        <td>{$vo['is_pay']|date="Y-m-d H:i",###}</td>
+                                        <td>{$vo['loan_time']}天</td>
+                                        <td>{$vo['overday']}天</td>
+                                        <!-- 到期时间 -->
+                                        <td>{$vo['renewal_days']|date="Y-m-d H:i",###}</td>
+                                        <td>{$vo['overdue_days']}天</td>
+                                        <td>{$vo['overdue_money']}元+{$vo['over_charges']}元</td>
+                                        <td>
+                                            <if condition="($vo['query_message'] eq 1)">
+                                            已发
+                                            <else/>
+                                            未发
+                                            </if>
+                                        </td>
+                                </tr>
+                                </volist>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <div class="pagination">{$page}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<!-- <script type="text/javascript" src="__ROOT__/Public/js/contabs.min.js"></script> -->
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+<script type="text/javascript">
+</script>
+</html>

@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size:12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+
+.ding{ width:100%; height:30px; background-color:#f2f2f2;}
+.nei{ text-align:left; }
+.nei .shang{ width:100%; height:130px; line-height:130px; font-size:42px;}
+.nei .shang span{ margin-left:44px;}
+.nei ul .you{ margin-bottom:38px;}
+.nei ul li{ float:left;}
+.zuo div{ background-color:#45b7fd; width:52px; height:52px; ;border-radius:26px; margin-left:44px; }
+.zuo div span{ line-height:52px; margin-left:14px; color:#fff; font-size:36px;} 
+
+.you{ padding-left:54px; width:80%; height:auto; float:left; font-size:36px;}
+.you span{ color:#ff8003;}
+
+.you a input{ width: 216px; height:72px; border:none; background-color:#45b7fd; color:#fff; border-radius:10px; font-size:36px; margin-top:30px;}
+
+.tian{ width:100%; height:auto;}
+.tian input{ width:72%; height:96px; margin:0 auto; border:3px solid #999; border-radius:10px; font-size:42px; text-indent:0.5em; margin-bottom:30px;}
+
+.tijiao{ width:100%; height:auto;}
+.tijiao input{ width:72%; height:84px; margin:0 auto; border:none; background-color:#45b7fd; color:#fff; border-radius:10px; font-size:42px;}
+
+
+.dibu{ width:100%; height:140px; border-top:3px solid #ccc; position:fixed; bottom:0; line-height:140px; font-size:42px; color:#45b7fd;}
+
+
+
+
+
+
+
+
+

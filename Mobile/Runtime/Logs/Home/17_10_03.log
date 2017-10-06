@@ -1,0 +1,6 @@
+[ 2017-10-03T11:37:04+08:00 ] 111.22.8.39 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18711004452' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18711004452','446973de30f3b854e21eaa8ab7c36253','1507001824')
+ERR: 1062:Duplicate entry '18711004452' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18711004452','446973de30f3b854e21eaa8ab7c36253','1507001824')
+

@@ -1,0 +1,212 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>信息审核列表</h5>
+                    <h5 style="margin-left:1000px;">{$hint}</h5>
+                </div>
+                <div class="ibox-content">
+<table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+  <tr>
+    <td>京东登录名</td>
+    <td>创建时间</td>
+    <td>京东成长值</td>
+    <td>会员级别</td>
+    <td>登陆密码验证</td>
+    <td>邮箱验证</td>
+    <td>手机号验证</td>
+    <td>支付密码验证</td>
+    <td>实名认证</td>
+    <td>数字证书手机认证</td>
+    <td>安全级别</td>
+  </tr>
+  <tr>
+    <td>{$response.jd_login_name}</td>
+    <td>{$response.createTime}</td>
+    <td>{$response.accountLevel.growthValue}</td>
+    <td>{$response.accountLevel.userLevel}</td>
+    <td>{$response.accountSafeInfo.detail.0.loginNameVerified}</td>
+    <td>{$response.accountSafeInfo.detail.1.emailVerified}</td>
+    <td>{$response.accountSafeInfo.detail.2.phoneVerified}</td>
+    <td>{$response.accountSafeInfo.detail.3.payPasswdVerified}</td>
+    <td>{$response.accountSafeInfo.detail.4.indentifyVerified}</td>
+    <td>{$response.accountSafeInfo.detail.5.licenseVerified}</td>
+    <td>{$response.accountSafeInfo.safeLevel}</td>
+  </tr>
+</table>
+
+<h1>绑定银行卡</h1>
+<table>
+<volist name="response.bindBankCards" id="vo">
+  <tr>
+    <td>{$vo}</td>
+  </tr>
+</volist>
+</table>
+<h1>京东白条</h1>
+<table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+  <tr>
+    <td>京东白条</td>
+    <td>白条额度</td>
+    <td>白条类型</td>
+    <td>消费额度</td>
+    <td>每月还款金额</td>
+    <td>是否开通</td>
+    <td></td>
+    <td>已还款金额</td>
+    <td>总额</td>
+    <td></td>
+  </tr>
+    <td>{$response.baitiaoInfo}</td>
+    <td>{$response.baitiaoInfo.avaliableAmount}</td>
+    <td>{$response.baitiaoInfo.btType}</td>
+    <td>{$response.baitiaoInfo.consumeAmount}</td>
+    <td>{$response.baitiaoInfo.monthPending}</td>
+    <td>{$response.baitiaoInfo.isOpen}</td>
+    <td>{$response.baitiaoInfo.face}</td>
+    <td>{$response.baitiaoInfo.pending}</td>
+    <td>{$response.baitiaoInfo.totalAmount}</td>
+    <td>{$response.baitiaoInfo.unUsedNumber}</td>
+</table>
+<table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+  <tr>
+    <td>昵称</td>
+    <td>真实姓名</td>
+    <td>登录名</td>
+    <td>性别</td>
+    <td>用户名</td>
+
+    <td>兴趣爱好</td>
+    <td>生日</td>
+    <td>邮箱</td>
+
+    <td>小白信用分</td>
+    <td>查询是否成功</td>
+    <td>得分</td>
+  </tr>
+    <td>{$response.baseInfo.nickname}</td>
+    <td>{$response.baseInfo.realName}</td>
+    <td>{$response.baseInfo.loginName}</td>
+    <td>{$response.baseInfo.sex}</td>
+    <td>{$response.baseInfo.username}</td>
+
+    <td>{$response.baseInfo.hobbies}</td>
+    <td>{$response.baseInfo.birthday}</td>
+    <td>{$response.baseInfo.email}</td>
+
+    <td>{$response.xiaobaixinyong.score}</td>
+    <td>{$response.xiaobaixinyong.success}</td>
+    <td>{$response.xiaobaixinyong.content}</td>
+</table>
+
+<table  id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+  <tr>
+    <td>年消费</td>
+    <td>订单记录</td>
+  </tr>
+  <tr>
+    <td>{$response.consumeHistroy.aYearTotalConsumeMoney}</td>
+    <td>
+      {$all_money}
+    </td>
+  </tr>
+</table>
+
+<h1>收货地址</h1>
+
+<table  id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+  <volist name="response.orderAddress" id="vo">
+  <tr>
+    <td>{$vo}</td>
+  </tr>
+  </volist>
+</table>
+
+<table>
+  
+  <volist name="response.consumeHistroy.aYearTotalConsumeMoney" id="vo">
+  </volist>
+</table>
+
+
+<h1>近一年的订单</h1>
+<volist name="response.recentAYearOrder" id="vo">
+<table  id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+ <tr>
+      <td>总额</td>
+      <td>订单时间</td>
+      <td>收货人</td>
+      <td>收货地址</td>
+      <td>收货电话</td>
+      <td>订单状态</td>
+      <td>支付类型</td>
+    </tr>
+    <tr>
+      <td>{$vo.amount}</td>
+      <td>{$vo.businessTime}</td>
+      <td>{$vo.customerName}</td>
+      <td>{$vo.orderAddr}</td>
+      <td>{$vo.orderPhone}</td>
+      <td>{$vo.orderStatus}</td>
+      <td>{$vo.payType}</td>
+    </tr>
+<volist name="vo.bindProNames" id="v">
+    <tr><td>商品名</td><td>{$v.name}</td></tr>
+</volist>
+</table>
+</volist>
+
+
+<h1>订单记录</h1>
+ <volist name="response.preAYearOrder" id="vo">
+<table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+    <tr>
+      <td>总额</td>
+      <td>订单时间</td>
+      <td>收货人</td>
+      <td>收货地址</td>
+      <td>收货电话</td>
+      <td>订单状态</td>
+      <td>支付类型</td>
+    </tr>
+    <tr>
+      <td>{$vo.amount}</td>
+      <td>{$vo.businessTime}</td>
+      <td>{$vo.customerName}</td>
+      <td>{$vo.orderAddr}</td>
+      <td>{$vo.orderPhone}</td>
+      <td>{$vo.orderStatus}</td>
+      <td>{$vo.payType}</td>
+    </tr>
+<volist name="vo.bindProNames" id="v">
+    <tr><td>商品名</td><td>{$v.name}</td></tr>
+</volist>
+</table>
+</volist>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

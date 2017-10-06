@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size:12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+
+body{background-color:#fafafa; }
+
+
+
+
+
+
+.t-logo{ margin:0 auto; width:100%; margin-top:50px; margin-bottom:10px;}
+.t-logo img{ width:30%;;}
+
+
+.tx{ width:92%; height:auto; margin:0 auto; margin-top:10px; }
+
+.tx .zi{ width:100%; font-size:1.5em; text-align:left; margin-bottom:6px;}
+.tx .tx1 input{ width:100%; height:34px; font-size:1.5em; border-radius:5px; border:1px solid #45b7fd;}
+
+.denglu input{ width:92%; height:40px; margin:0 auto; background-color:#45b7fd; font-size:1.5em; border-radius:10px; border:none; color:#FFF;}
+
+.di{ width:92%; height:auto; margin:0 auto;}
+.di ul li{ float:left; font-size:1.2em;}
+.di ul .di2{ float:right;}

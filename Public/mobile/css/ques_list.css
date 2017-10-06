@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#F2F2F2; font-family: Verdana, 
+Arial, sans-serif; font-size: 12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+.menu_list { width:100%; margin-top:35px; background:#fff;}
+.menu_head{ line-height:150px; cursor: pointer; position: relative;  
+ font-size:42px; color:#000; width:92.2%; height:150px; margin:0 auto; text-align:left;
+  background:url(../images/jian_03.png) no-repeat center right ; 
+   border-bottom:2px solid #ececec;}
+.menu_body { display:none; background:#fff; }
+
+.menu_body p{ width:84%;padding:30px 8%; background-color:#fff; line-height:60px; 
+display:block;  font-size:36px; color:#666;  border-bottom:2px solid #ececec;
+ text-align:left;}
+ 
+ 
+ 
+ 
+ 
+ 

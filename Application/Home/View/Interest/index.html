@@ -1,0 +1,116 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <h1>降息人数{$data['interest_minus']}</h1>
+                <h1>未降息人数{$data['interest_add']}</h1>
+                <div class="ibox-content">
+                <form action="__URL__/index" method="post" enctype="multipart/form-data">
+                    借款次数：<input type="num" name="loan_num" value="1">-<input type="num" name="loan_num_i" value="5">
+                    <!-- <label><input type="radio" name="loan_num" value="1">1次</label><label><input type="radio" name="loan_num" value="2">2次</label><label><input type="radio" name="loan_num" value="3" checked="checked">3次</label><label><input type="radio" name="loan_num" value="4">4次</label><label><input type="radio" name="loan_num" value="5" >5次</label> -->
+                    <br/>
+                    <br/>
+                    借款状态：<label><input type="radio" name="is_loan" value="1" checked="checked">借款中</label><label><input type="radio" name="is_loan" value="0">没有借款</label><label><input type="radio" name="is_loan" value="2" checked="checked">所有人</label>
+                    <br/>
+                    <br/>
+                    芝麻分数：<input type="num" name="zm_score"  value="600">~<input type="num" name="zm_score_i" value="700">
+                    <!-- <label><input type="radio" name="zm_score" value="650x" >650以下</label><label><input type="radio" name="zm_score" value="650s" checked="checked">650以上</label>
+                    <label><input type="radio" name="zm_score" value="650i" >650-700</label><label><input type="radio" name="zm_score" value="700s" >700以上</label>-->
+                    <br/>
+                    <br/>
+                    到期天数：  <input type="num" name="day" value="1">天内还款
+                    <!-- <label><input type="radio" name="day" value="1">一天到期</label>
+                                <label><input type="radio" name="day" value="2">二天到期</label>
+                                <label><input type="radio" name="day" value="3" checked="checked">三天到期</label>
+                                <label><input type="radio" name="day" value="4">四天到期</label>
+                                <label><input type="radio" name="day" value="5">五天到期</label> -->
+                    <br/>
+                    <br/>
+                    当前额度：  <input type="num" name="lines" value="1000" >~<input type="num" name="lines_i" value="2000" >
+
+                    <!-- <label><input type="radio" name="lines" value="1000" checked="checked">1500以下</label>
+                                <label><input type="radio" name="lines" value="1500">1500-2000</label>
+                                <label><input type="radio" name="lines" value="2000">2000以上</label> -->
+                    <br/>
+                    <br/>
+                    当前额度：  <label><input type="radio" name="card" value="1" >去除银卡</label>
+                                <label><input type="radio" name="card" value="2">去除金卡</label>
+                                <label><input type="radio" name="card" value="3" checked="checked">去除金卡、银卡</label>
+                    <br/>
+                    <br/>
+
+                    降息情况：<label><input type="radio" name="interest_type" value="1">已降息</label><label><input type="radio" name="interest_type" value="i" checked="checked">未降息</label>
+                    <br/>
+                    <br/>
+                    <input type="submit" value="查询">
+                </form>
+
+                <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                    <tr>
+                        <td>序号</td>
+                        <td>手机号</td>
+                        <td>姓名</td>
+                        <td>身份证</td>
+                        <td>芝麻分</td>
+                        <td>借款状态</td>
+                        <td>借款次数</td>
+                        <td>是否降息</td>
+                        <td>到期天数</td>
+                        <td>逾期天数</td>
+                        <td>当前额度</td>
+                        <td>当前类型</td>
+                    </tr>
+                    <volist name="new_data" id="vo" key="k">
+                        <tr>
+                            <td>{$k}</td>
+                            <td>{$vo['user_name']}</td>
+                            <td>{$vo['u_name']}</td>
+                            <td>{$vo['identity']}</td>
+                            <td>{$vo['zm_score']}</td>
+                            <td>{$vo['is_loan']}</td>
+                            <td>{$vo['loan_num']}</td>
+                            <if condition="$vo['interest_type'] eq 1">
+                                <td>已降息</td>
+                            <else/>
+                                <td>未降息</td>
+                            </if>
+                            <td>{$vo['day']}</td>
+                            <td>{$vo['overdue_day']}</td>
+                            <td>{$vo['lines']}</td>
+                            
+                            <if condition="$vo['card_type'] eq 2">
+                                <td>银卡</td>
+                            <elseif condition="$vo['card_type'] eq 1"/>
+                                <td>金卡</td>
+                            <else/>
+                                <td></td>
+                            </if>
+                        </tr>
+                    </volist>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

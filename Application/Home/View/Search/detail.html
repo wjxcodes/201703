@@ -1,0 +1,198 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+            
+           
+                <div class="ibox-content" >
+                    <h1>用户信息</h1>
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <tr>
+                            <td>姓名</td>
+                            <td>手机号</td>
+                            <td>身份证</td>
+                            <td>注册时间</td>
+                            <td>操作</td>
+                        </tr>
+                        <volist name="user_data" id="vo" key="k">
+                            <tr>
+                                <td>{$vo['u_name']}</td>
+                                <td>{$vo['user_name']}</td>
+                                <td>{$vo['identity']}</td>
+                                <td>{$vo['create_time']|date="Y-m-d",###}</td>
+                                
+                                <td>
+                                    <if condition="$k eq 1">
+
+                                    <else/>
+                                        <a href="{:U('Home/search/detail')}"><button>查看</button></a>
+                                    </if>
+                                </td>
+
+                            </tr>
+
+
+                        </volist>
+                    </table>
+                    <h1>当前借款状态</h1>
+
+                    <if condition="$loan_data['is_loan'] eq 1">
+                        <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                            <tr>
+                                <td>借款金额</td>
+                                <td>借款时间</td>
+                                <td>借款期限</td>
+                                <td>借款次数</td>
+                                <td>当前状态</td>
+                                <td>续期天数</td>
+                            </tr>
+                            <tr>
+                                <td>{$loan_data['loan_amount']}</td>
+                                <td>{$loan_data['loan_request']|date="Y-m-d",###}</td>
+                                <td><eq name="$loan_data['loan_time']" value="1">7<else/>14</eq></td>
+                                <td>{$loan_data['loan_num']}</td>
+                                <td>
+                                    <if condition="$loan_data['is_pay'] gt 1">
+                                        已打款
+                                    <elseif condition="$loan_data['maudit'] eq 2"/>
+                                        待放款
+                                    <elseif condition="$user_data[0]['audit'] eq 2"/>
+                                        打款金额审核
+                                    <elseif condition="$user_data[0]['au_request'] eq 1"/>
+                                        待审核
+                                    </if>
+                                </td>
+                                <td>{$loan_data['renewal_days']}</td>
+                                <td></td>
+                            </tr>
+
+                            <if condition="$loan_data['xudetail'][0] neq ''">
+                                
+                                <tr bgcolor="#96FED1">
+                                       <td>续期时间</td>
+                                       <td>续期金额</td>
+                                       <td>续期期限</td>
+                                       <td>续期方式</td>
+                                </tr>
+                                <volist name="loan_data['xudetail']" id="v">
+                                    <tr bgcolor="#96FED1">
+                                        <td>{$v['repayment_time']|date="Y-m-d",###}</td>
+                                        <td>{$v['pay_money']}</td>
+                                        <td>{$v['continued_day']}</td>
+                                        <td>
+                                            <if condition="$v['is_kq'] eq 0">
+                                                支付宝
+                                                <elseif condition="$v['is_kq'] eq 1"/>
+                                                快钱
+                                                <elseif condition="$v['is_kq'] eq 2"/>
+                                                连连
+                                            </if>
+                                        </td>
+                                    </tr>   
+                               </volist>
+
+                           </if>
+                        </table>
+                        <else />
+                        <h1 style="color:#000079">当前没有申请借款</h1>
+                    </if>
+
+
+                    <h1>历史借款记录</h1>
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <tr>
+                            <td>借款金额</td>
+                            <td>借款时间</td>
+                            <td>借款期限</td>
+                            <td>还款时间</td>
+                            <td>免去费用</td>
+                            <td>续期总天数</td>
+                            <td>还款方式</td>
+                        </tr>
+                        <volist name="record_data" id="vo">
+                            <tr bgcolor="#93FF93">
+                                <td>{$vo['pay_money']}</td>
+                                <td>{$vo['pay_time']|date="Y-m-d",###}</td>
+                                <td>
+                                    <eq name="$vo['loan_time']" value="1">7<else/>14</eq>
+                                </td>
+                                <td>{$vo['repayment_time']|date="Y-m-d",###}</td>
+                                <td>{$vo['payment']}</td>
+                                <td>{$vo['xutime']}</td>
+                                <td>
+                                    <if condition="$vo['is_kq'] eq 0">
+                                        支付宝
+                                        <elseif condition="$vo['is_kq'] eq 1"/>
+                                        快钱
+                                        <elseif condition="$vo['is_kq'] eq 2"/>
+                                        连连
+                                    </if>
+                                </td>
+                            </tr>
+                            <if condition="$vo['xudetail'] neq ''">
+                                
+                                <tr bgcolor="#96FED1">
+                                       <td>续期时间</td>
+                                       <td>续期金额</td>
+                                       <td>续期期限</td>
+                                       <td>续期方式</td>
+                                </tr>
+                                <volist name="vo['xudetail']" id="v">
+                                    <tr bgcolor="#96FED1">
+                                        <td>{$v['repayment_time']|date="Y-m-d",###}</td>
+                                        <td>{$v['pay_money']}</td>
+                                        <td>{$v['continued_day']}</td>
+                                        <td>
+                                            <if condition="$v['is_kq'] eq 0">
+                                                支付宝
+                                                <elseif condition="$v['is_kq'] eq 1"/>
+                                                快钱
+                                                <elseif condition="$v['is_kq'] eq 2"/>
+                                                连连
+                                            </if>
+                                        </td>
+                                    </tr>   
+                               </volist>
+                            </if>
+                        </volist>
+                    </table>
+                    
+                    <h1>不通过记录</h1>
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <tr>
+                            <td>不通过金额</td>
+                            <td>不通过时间</td>
+                        </tr>
+                        <volist name="feed_data" id="vo">
+                            <tr>
+                                <td>{$vo['loan_amount']}</td>
+                                <td>{$vo['create_time']|date="Y-m-d",###}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+
+</html>

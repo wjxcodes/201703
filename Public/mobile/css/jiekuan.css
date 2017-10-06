@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size: 12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#F00;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+input{ outline:none;}
+/*共同样式 end*/
+
+
+
+.top{ width:100%; height:700px; background-color:#fff;}
+.top-nei{width:100%; height:502px; background:url(../images/jie_13.png) no-repeat; background-position:center 90px;}
+.top-nei .num{ font-size:72px; padding-top:240px;}
+.top-nei .word{ font-size:28px; padding-left:20px;}
+.top .n-wo{ font-size:42px; color:#666; margin-top:66px;}
+/* top end--------------------------------------------*/
+.new{ width:100%; height:100px; background-color:#f2f2f2;}
+.new p{ font-size:40px; color:#989898; line-height:100px; float:left; margin-left:45px;}
+/* new end--------------------------------------------*/
+.money{ width:100%; height:160px; background-color:#FFF; border-bottom:3px solid #989898;}
+.money img{ display:block; float:left; margin-top:48px; margin-left:45px;}
+.money p{ font-size:48px; color:#333; line-height:160px; margin-left:42px; float:left;}
+
+.money .qian{ float:right; width:50%; margin-right:4%;}
+.money .qian input{ width:100%; height:155px; line-height:155px; font-size:48px; border:none; color:#333;}
+.money .qian input:active .foot{ position:none;}
+
+/* money end--------------------------------------------*/
+
+.time{ width:100%; height:160px; background-color:#FFF; border-bottom:3px solid #989898;}
+.time img{ display:block; float:left; margin-top:40px; margin-left:45px;}
+.time p{ font-size:48px; color:#333; line-height:160px; margin-left:42px; float:left;}
+.shijian .xla_k { float:right; width:50%; height:160px; line-height:160px; font-size:48px; border:none; margin-right:4%; color:#333;}
+.shijian select{appearance:none; -moz-appearance:none; -webkit-appearance:none;
+background: url(../images/jie_19.png) no-repeat scroll right center transparent; padding-right:40px;}
+
+
+/* time end--------------------------------------------*/
+
+.hui{ width:100%; height:160px; background-color:#FFF; border-bottom:3px solid #989898;}
+.hui img{ display:block; float:left; margin-top:40px; margin-left:45px;}
+.hui p{ font-size:48px; color:#333; line-height:160px; margin-left:42px; float:left;}
+
+/* hui end--------------------------------------------*/
+.lixi{ width:80%; margin:0 auto; font-size:30px; color:#333; margin-top:10px; line-height:52px;}
+.lixi input{ font-size:42px; color:#45b7fd; border:none; background-color:#fff; text-decoration:underline;}
+
+.lixi span{ font-size:36px; color:#f90;}
+
+
+
+
+
+
+
+
+
+
+.button{ width:100%; height:450px; background-color:#fff;}
+.submit input{ width:80%; height:104px; border-radius:52px; background-color:#45b7fd; margin:0 auto; margin-top:20px; border:none;}
+.submit input{ font-size:42px; color:#fff; line-height:104px;}
+/* submit end--------------------------------------------*/
+.foot{ width:100%; height:144px; border-top:1px solid #f0f0f0; background-color:#fff; position:fixed; bottom:0;}
+.line{ width:100%; height:1px; background-color:#dcdcdc;}
+.foot img{ margin-top:20px;}
+.icon1{ margin-left:10%; float:left; }
+.icon2{ margin:0 auto;}
+.icon3{ margin-right:10%; float:right; }
+
+
+
+
+
+
+
+

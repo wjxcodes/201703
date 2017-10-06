@@ -1,0 +1,144 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>信息审核列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <!--  微信 开始 -->
+              
+                <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                       <!--  联系的手机号    手机号码归属地 呼入次数    呼入时长    呼出次数    呼出时长    总通话次数   总通话时长 -->
+                            <th>序号</th>
+                            <th>联系的手机号</th>
+                            <th>手机号码归属地</th>
+                            <th>呼入次数</th>
+                            <th>呼入时长</th>
+                            <th>呼出次数</th>
+                            <th>呼出时长</th>
+                            <th>总通话次数</th>
+                            <th>总通话时长</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="result" id="vo" key="k" offset="0" length='100'>
+                            <tr>
+                                <td>{$k}</td>
+                                <td
+<php>preg_match('/^1[34578]\d{9}$/A',$vo['phone_num'],$match); 
+            if(empty($match)){
+                echo "style='color:red'";
+            }</php>
+                                >{$vo['phone_num']}</td>
+                                <td>{$vo['phone_num_loc']}</td>
+                                <td>{$vo['call_in_cnt']}</td>
+                                <td>{$vo['call_in_len']}</td>
+                                <td>{$vo['call_out_cnt']}</td>
+                                <td>{$vo['call_out_len']}</td>
+                                <td>{$vo['call_cnt']}</td>
+                                <td>{$vo['call_len']}</td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr
+                             
+                        >
+                            <th>万达</th>
+                            <th>各类</th>
+                            <th>通话</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <volist name="casic" id="vo" key="k">
+                            <tr 
+                               <php>
+                                if(mb_substr($vo['result'],0,2,'utf-8')=='数量' || mb_substr($vo['evidence'],0,4,'utf-8')=='根据号码'){
+                                echo "style='color:red'";
+                                }
+                              </php>
+
+                            >
+                                <td>{$vo['result']}</td>
+                                <td>{$vo['check_point_cn']}</td>
+                                <td>{$vo['evidence']}</td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>月份</th>
+                            <th>月通话次数</th>
+                            <th>手机归属地</th>
+                            <th>运营商</th>
+                            <th>月流量MB</th>
+                            <th>话费元</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <volist name="accounts" id="vo" key="k">
+                            <tr>
+                                <td>{$vo['cell_mth']}</td>
+                                <td>{$vo['call_cnt']}</td>
+                                <td>{$vo['cell_loc']}</td>
+                                <td>{$vo['cell_operator_zh']}</td>
+                                <td>{$vo['net_flow']}</td>
+                                <td>{$vo['total_amount']}</td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                   <div class="ibox-title" id="sumtext">
+                        <h5>今天回款:<span style='color:red'>{$count_num}</span>人</h5>
+                    </div>
+                <div class="ibox-content">
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>手机号</th>
+                            <th>姓名</th>
+                            <th>借款时间</th>
+                            <th>借款金额</th>
+                            <th>到期时间</th>
+                            <th>本息</th>
+                            <th>逾期天数</th>
+                            <th>逾期费</th>
+                            <th>应还款总额</th>
+                            <th>联系人姓名</th>
+                            <th>联系人电话</th>
+                            <th>分配时间</th>
+                            <th>
+                                <if condition="($v['group'] neq 0)">
+                                    标记
+                                <else/>
+                                    负责人
+                                </if>
+                            </th>
+                            <th>还款时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <volist name="loan_data" id="vo" key="k">
+                                <if condition="($vo['lev'] eq 1)">
+                                    <tr style="background:#FF4040;color:#080808;">
+                                <elseif condition="($vo['lev'] eq 2)"/>
+                                    <tr style="background:#FFB90F;color:#080808;">
+                                <elseif condition="($vo['lev'] eq 3)"/>
+                                    <tr style="background:#7CCD7C;color:#080808;">
+                                </if>
+                                    <td>{$k}</td>
+                                    <td>
+                                        <a href="{:U('Home/Bad/info',array('user_name'=>$vo['user_name']))}">{$vo['user_name']}</a>
+                                    </td>
+                                    <td>
+                                        <a href="{:U('Home/Bad/beizhu',array('user_name'=>$vo['user_name']))}">{$vo['u_name']}</a>
+                                    </td>
+                                    <td>{$vo['pay_time']}</td>
+                                    <td>{$vo['loan_amount']}元</td>
+                                    <td>{$vo['bentime']|date="Y-m-d H:i",###}</td>
+                                    <td>{$vo['money']}元</td>
+                                    <td>{$vo['overday']}天</td>
+                                    <td>{$vo['overmoney']}元</td>
+                                    <td>{$vo['sunmoney']}元</td>
+                                    <td>{$vo['link_name']}</td>
+                                    <td>{$vo['link_tel']}</td>
+                                    <td>{$vo['create']}</td>
+                                    <td>
+                                        <if condition="($v['group'] neq 0)">
+                                            <a href="{:U('Home/Bad/recolor',array('no'=>$vo['user_name'],'code'=>1))}"><button style="color:red">A</button></a>
+                                            <a href="{:U('Home/Bad/recolor',array('no'=>$vo['user_name'],'code'=>2))}"><button style="color:yellow">B</button></a>
+                                            <a href="{:U('Home/Bad/recolor',array('no'=>$vo['user_name'],'code'=>3))}"><button style="color:blue">C</button></a>
+                                        <else/>
+                                             {$vo['group']}   
+                                        </if>
+                                        
+                                    </td>
+                                    <td>{$vo['complete']}</td>
+                                </tr>
+                            </volist>
+                        </tbody>
+                    </table>
+                    <div class="pagination">{$page}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

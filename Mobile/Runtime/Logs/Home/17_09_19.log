@@ -1,0 +1,12 @@
+[ 2017-09-19T08:05:58+08:00 ] 117.136.52.76 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '13872407189' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('13872407189','6518c8fbb28fc26a8e7521b5ff55a86a','1505779558')
+ERR: 1062:Duplicate entry '13872407189' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('13872407189','6518c8fbb28fc26a8e7521b5ff55a86a','1505779558')
+
+[ 2017-09-19T08:06:13+08:00 ] 117.136.52.76 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '13872407189' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('13872407189','6518c8fbb28fc26a8e7521b5ff55a86a','1505779573')
+ERR: 1062:Duplicate entry '13872407189' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('13872407189','6518c8fbb28fc26a8e7521b5ff55a86a','1505779573')
+

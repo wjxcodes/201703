@@ -1,0 +1,63 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+
+                <div class="ibox-title">
+
+                    <h5>容时期列表</h5>
+                    <h5 style="margin-left:50px;">容时期:<span style="color: red">{$let_sum}</span>人</h5>
+                  <a style="float:right;" href="{:U('Home/Overdue/collection')}"><button>逾期催收</button></a>
+                </div>
+                <a style="margin-left:95%;" href="{:U('Home/Rong/export')}"><button>导出</button></a>
+                <div class="ibox-content">
+
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        
+                        <tbody>
+                        <volist name="arr" id="vo" key="k">
+                        
+                                    <tr>
+                                    【蜻蜓白卡】 {$vo['bank_name']}，身份证号：{$vo['identity']}；你在我公司办理的借款{$vo['shouxufei']+$vo['loan_amount']}元（{$vo['loan_amount']}+{$vo['shouxufei']}）；截止今日你已逾期第{$vo['day']|abs}天，逾期费用为{$vo['overdue_money']}元；应还金额为{$vo['shouxufei']+$vo['loan_amount']+$vo['overdue_money']}元。如您继续逾期，我们将在您逾期三天后请求您如下授权联系人的协助：<br/><br/>
+                                </tr>
+                                </volist>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <div class="pagination">{$page}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate
+});
+</script>
+</html>

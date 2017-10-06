@@ -1,0 +1,3 @@
+2017-04-20 11:13:14	{"encrypted":false,"biz_response":"{\"success\":false,\"error_code\":\"ZMCREDIT.transaction_id_repeat\",\"error_message\":\"相同业务流水号但业务参数不一致，请求被拒绝\"}"}
+2017-04-20 14:50:54	{"encrypted":false,"biz_response":"{\"success\":false,\"error_code\":\"ZMCREDIT.parameter_invalid\",\"error_message\":\"身份证号非法\"}"}
+2017-04-20 14:50:56	{"encrypted":false,"biz_response":"{\"success\":false,\"error_code\":\"ZMCREDIT.parameter_invalid\",\"error_message\":\"身份证号非法\"}"}

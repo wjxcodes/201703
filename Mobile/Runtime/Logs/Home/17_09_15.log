@@ -1,0 +1,18 @@
+[ 2017-09-15T15:29:01+08:00 ] 183.225.96.151 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18760788540' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18760788540','bfc5bec670f44e8eaad1e946d7871330','1505460541')
+ERR: 1062:Duplicate entry '18760788540' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18760788540','bfc5bec670f44e8eaad1e946d7871330','1505460541')
+
+[ 2017-09-15T16:43:00+08:00 ] 36.98.71.42 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '17731491512' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('17731491512','6b834150aef1659cf8d22f2259ce5db7','1505464980')
+ERR: 1062:Duplicate entry '17731491512' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('17731491512','6b834150aef1659cf8d22f2259ce5db7','1505464980')
+
+[ 2017-09-15T18:25:37+08:00 ] 171.210.60.213 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-09-15T19:36:25+08:00 ] 220.163.252.231 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+

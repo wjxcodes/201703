@@ -1,0 +1,263 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                
+                <h1>标题</h1>
+                    
+                <table border="1">
+
+                    <tr>
+                        <td rowspan="2">1</td>
+                        <td colspan="5">最近2年借款申请记录</td>
+                        <td colspan="3">正常还款账户</td>
+                        <td colspan="3">异常还款账户</td>
+                        <td rowspan="2">行业不良记录</td>
+                        <td colspan="3">最近两年查询记录</td>
+                    </tr>
+                    <tr>
+                        
+                        <td>待审核</td>
+                        <td>审批通过</td>
+                        <td>审批拒绝</td>
+                        <td>客户取消</td>
+                        <td>小计</td>
+                        <td>未结清</td>
+                        <td>已结清</td>
+                        <td>小计</td>
+                        <td>未结清</td>
+                        <td>已结清</td>
+
+                        <td>小计</td>
+                        <td>3个月内</td>
+                        <td>6个月内</td>
+                        <td>两年内</td>
+                    </tr>
+                    <tr>
+                        <td>笔数</td>
+                        <td>{$anrong_data['title']['applyingCount']}</td>
+                        <td>{$anrong_data['title']['applyPassedCount']}</td>
+                        <td>{$anrong_data['title']['applyRejectCount']}</td>
+                        <td>{$anrong_data['title']['applyCancelCount']}</td>
+                        <td>{$anrong_data['title']['applyTotalCount']}</td>
+
+                        <td>{$anrong_data['title']['wjqCount']}</td>
+                        <td>{$anrong_data['title']['jqCount']}</td>
+                        <td>{$anrong_data['title']['totalCount']}</td>
+
+                        <td>{$anrong_data['title']['ewjqCount']}</td>
+                        <td>{$anrong_data['title']['ejqCount']}</td>
+                        <td>{$anrong_data['title']['etotalCount']}</td>
+
+                        <td>{$anrong_data['title']['blackCount']}</td>
+
+                        <td>{$anrong_data['title']['queryCount3Month']}</td>
+                        <td>{$anrong_data['title']['queryCount6Month']}</td>
+                        <td>{$anrong_data['title']['queryCount2Year']}</td>
+                    </tr>
+                    <tr>
+                        <td>总金额</td>
+                        <td>{$anrong_data['title']['applyingSumMoney']}</td>
+                        <td>{$anrong_data['title']['applyPassedSumMoney']}</td>
+                        <td>{$anrong_data['title']['applyRejectSumMoney']}</td>
+                        <td>{$anrong_data['title']['applyCancelSumMoney']}</td>
+                        <td>{$anrong_data['title']['applyTotalSumMoney']}</td>
+
+                        <td>{$anrong_data['title']['wjqSumMoney']}</td>
+                        <td>{$anrong_data['title']['jqSumMoney']}</td>
+                        <td>{$anrong_data['title']['totalSumMoney']}</td>
+
+                        <td>{$anrong_data['title']['ewjqSumMoney']}</td>
+                        <td>{$anrong_data['title']['ejqSumMoney']}</td>
+                        <td>{$anrong_data['title']['etotalSumMoney']}</td>
+
+                        <td>{$anrong_data['title']['blackSumMoney']}</td>
+
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </table>
+                
+                <h1>最近2年借款申请记录明细</h1>
+
+                <table border="1">
+                    <tr>
+                        <td>申请日期</td>
+                        <td>会员类型</td>
+                        <td>申请地点</td>
+                        <td>申请金额</td>
+                        <td>审批结果</td>
+                        <td>备注</td>
+                    </tr>
+                    <volist name="anrong_data['applyDetail']" id="vo">
+                        <tr>
+                            <td>{$vo['applyDate']}</td>
+                            <td>{$vo['memberType']}</td>
+                            <td>{$vo['creditAddress']}</td>
+                            <td>{$vo['loanMoney']}</td>
+                            <td>{$vo['applyResult']}</td>
+                            <td>{$vo['remark']}</td>
+                        </tr>
+                    </volist>
+                </table>
+
+                <h1>正常还款账户明细</h1>
+
+                <table border="1">
+                    <tr>
+                        <td>借款编号</td>
+                        <td>会员类型</td>
+                        <td>借款日期</td>
+                        <td>到期日期</td>
+                        <td>借款地点</td>
+                        <td>担保方式</td>
+                        <td>合同金额</td>
+                        <td>还款期数</td>
+                        <td>备注 *号表示已结清</td>
+                    </tr>
+                    <volist name="anrong_data['normalCreditDetails']" id="vo">
+                        <tr>
+                            <td>{$vo['num']}</td>
+                            <td>{$vo['memberType']}</td>
+                            <td>{$vo['creditStartDate']}</td>
+                            <td>{$vo['creditEndDate']}</td>
+                            <td>{$vo['creditAddress']}</td>
+                            <td>{$vo['assureType']}</td>
+                            <td>{$vo['loanMoney']}</td>
+                            <td>{$vo['loanPeriods']}</td>
+                            <td>{$vo['remark']}</td>
+                        </tr>
+                    </volist>
+                </table>
+
+                <h1>异常还款记录明细</h1>
+
+                <table border="1">
+                    <tr>
+                        <td>借款编号</td>
+                        <td>会员类型</td>
+                        <td>借款日期</td>
+                        <td>到期日期</td>
+                        <td>担保方式</td>
+                        <td>合同金额</td>
+                        <td>还款期数</td>
+                        <td>逾期日期</td>
+                        <td>逾期时长</td>
+                        <td>逾期金额</td>
+                        <td>状态</td>
+                        <td>备注</td>
+                    </tr>
+                    <volist name="anrong_data['abnormalCreditDetails']" id="vo">
+                        <tr>
+                            <td>{$vo['num']}</td>
+                            <td>{$vo['memberType']}</td>
+                            <td>{$vo['creditStartDate']}</td>
+                            <td>{$vo['creditEndDate']}</td>
+                            <td>{$vo['assureType']}</td>
+                            <td>{$vo['loanMoney']}</td>
+                            <td>{$vo['loanPeriods']}</td>
+                            <td>{$vo['checkOverdueDate']}</td>
+                            <td>{$vo['overdueDays']}</td>
+                            <td>{$vo['nbMoney']}</td>
+                            <td>{$vo['overdueState']}</td>
+                            <td>{$vo['operTime']}</td>
+                            <td>{$vo['remark']}</td>
+                        </tr>
+                    </volist>
+                </table>
+                
+                <h1>最近2年内查询记录明细</h1>
+
+                <table border="1">
+                    <tr>
+                        <td>查询日期</td>
+                        <td>会员类型</td>
+                        <td>查询类别</td>
+                        <td>备注</td>
+                    </tr>
+                    <volist name="anrong_data['queryDetails']" id="vo">
+                        <tr>
+                            <td>{$vo['queryDate']}</td>
+                            <td>{$vo['memberType']}</td>
+                            <td>{$vo['queryType']}</td>
+                            <td>{$vo['remark']}</td>
+                        </tr>
+                    </volist>
+                </table>
+
+                
+                <h1>行业不良信息</h1>
+                
+                <table border="1">
+                    <tr>
+                        <td>会员类型</td>
+                        <td>报送/公开日期</td>
+                        <td>最近逾期开始日期</td>
+                        <td>借款地点</td>
+                        <td>欠款总额</td>
+                        <td>电话</td>
+                        <td>邮箱</td>
+                        <td>户籍地址</td>
+                        <td>现居地址</td>
+                        <td>状态</td>
+                        <td>信息来源</td>
+                    </tr>
+                    <volist name="anrong_data['blackDatas']" id="vo">
+                        <tr>
+                            <td>{$vo['memberType']}</td>
+                            <td>{$vo['createDate']}</td>
+                            <td>{$vo['lastOverdueDate']}</td>
+                            <td>{$vo['creditAddress']}</td>
+                            <td>{$vo['arrears']}</td>
+                            <td>{$vo['phone']}</td>
+                            <td>{$vo['email']}</td>
+                            <td>{$vo['residenceAddress']}</td>
+                            <td>{$vo['currentAddress']}</td>
+                            <td>{$vo['status']}</td>
+                            <td>{$vo['source']}</td>
+                        </tr>
+
+                </table>
+
+
+                <h1>本人异议申告明细</h1>
+                
+                <table border="1">
+                    <tr>
+                        <td>申告日期</td>
+                        <td>申告内容</td>
+                        <td>备注</td>
+                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+
+</html>

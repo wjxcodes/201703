@@ -1,0 +1,95 @@
+@charset "utf-8";
+/* CSS Document */
+/*共同样式*/
+* {margin:0; padding:0;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size:12px; text-align:center;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#333;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+
+body{background-color:#fff; }
+
+.bq{ width:90%; margin:0 auto;  margin-top:20px; display:block;}
+.bq .bq-1,.bq-2,.bq1,.bq2{ width:49%; height:40px;}
+.bq .bq-1{ display:block; border:none; border:1px solid #45b7fd; background-color:#45b7fd; color:#fff; line-height:40px; font-size:18px; text-align:center; float:left; border-radius: 5px 0 0 5px;}
+.bq .bq-2{float:left; display:block; border:none; border:1px solid #45b7fd; line-height:40px; font-size:18px; text-align:center; border-radius: 0 5px 5px 0;}
+
+
+.bq .bq1{ display:block; border:none; border:1px solid #45b7fd; line-height:40px; font-size:18px; text-align:center; float:left; border-radius: 5px 0 0 5px;} 
+.bq .bq2{float:left; display:block; border:none; border:1px solid #45b7fd; background-color:#45b7fd; color:#fff; line-height:40px; font-size:18px; text-align:center; border-radius: 0 5px 5px 0;}
+
+
+
+
+
+
+
+
+
+
+.xinxi{ border-top:1px solid #ccc;}
+.yinhangka{ border-top:1px solid #ccc;} 
+.xinxi,.lianxi,.yinhangka,.zhima{ width:100%; height:60px; margin:0 auto; background-color:#FFF; border-bottom:1px solid #ccc; font-size:0.8em; }
+.z-xin{ width:92%; height:60px; margin:0 auto; position:relative}
+.z-xin div{ float:left;}
+.z-xin .tb{ width:13%; height:60px; margin:0 auto; text-align:left;} 
+.tb img{ max-width:70%; margin-top:18px;}
+.z-xin .zi{ width:64%; height:60px; margin:0 auto;text-align:left;}
+.z-xin .zi .zi-xin{ height:44px; margin-top:10px;}
+.z-xin .wanshan{ width:23%; height:60px; margin:0 auto;text-align:right;}
+
+
+.zi ul li{ font-size:1.5em;}
+.zi ul li span{ color:#F90; font-size:0.8em;}
+.zi ul .hui{ color:#999; font-size:1.1em;}
+
+.z-xin .wanshan{ font-size:1.5em; color:#45b7fd; line-height:60px;}
+
+a .wanshan img{ max-width:10%; min-width:10%;;}
+
+.tui{ width:60%; height:30px; margin:0 auto;}
+.tui a input{ width:100%; height:30px; background-color:#45b7fd; border:none; border-radius:5px; color:#FFF; margin-top:30px;}
+
+.zhima .tb img{ max-width:60%; margin-top:25px; margin-left:3px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

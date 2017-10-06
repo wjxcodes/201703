@@ -1,0 +1,72 @@
+[ 2017-09-21T02:45:00+08:00 ] 118.113.249.85 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+
+[ 2017-09-21T02:45:00+08:00 ] 118.113.249.85 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+
+[ 2017-09-21T02:45:00+08:00 ] 118.113.249.85 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+
+[ 2017-09-21T02:45:00+08:00 ] 118.113.249.85 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+
+[ 2017-09-21T02:45:00+08:00 ] 118.113.249.85 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+
+[ 2017-09-21T02:45:00+08:00 ] 118.113.249.85 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+
+[ 2017-09-21T02:45:00+08:00 ] 118.113.249.85 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+ERR: 1062:Duplicate entry '18116626602' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18116626602','4543fabe9f21c28c89c042ab9d65c84c','1505933100')
+
+[ 2017-09-21T08:17:07+08:00 ] 117.136.82.224 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '15982986067' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('15982986067','e51f31e81e35551fdedeef365260295f','1505953027')
+ERR: 1062:Duplicate entry '15982986067' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('15982986067','e51f31e81e35551fdedeef365260295f','1505953027')
+
+[ 2017-09-21T12:10:44+08:00 ] 113.200.107.26 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18550160705' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18550160705','79356d57621e89e3c0246242363e5d57','1505967044')
+ERR: 1062:Duplicate entry '18550160705' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18550160705','79356d57621e89e3c0246242363e5d57','1505967044')
+
+[ 2017-09-21T21:07:04+08:00 ] 182.149.64.154 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-09-21T21:07:35+08:00 ] 182.149.64.154 /free/mobile.php/home/info/upload.html
+ERR: 没有可以被缩略的图像资源
+
+[ 2017-09-21T23:59:14+08:00 ] 112.97.57.45 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18718795214' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18718795214','291c4149ee0da1fff1999ac312593de8','1506009554')
+ERR: 1062:Duplicate entry '18718795214' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18718795214','291c4149ee0da1fff1999ac312593de8','1506009554')
+
+[ 2017-09-21T23:59:28+08:00 ] 112.97.57.45 /free/mobile.php/home/user/register.html
+ERR: 1062:Duplicate entry '18718795214' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18718795214','291c4149ee0da1fff1999ac312593de8','1506009568')
+ERR: 1062:Duplicate entry '18718795214' for key 'user_name'
+ [ SQL语句 ] : INSERT INTO `free_user` (`user_name`,`pass_word`,`create_time`) VALUES ('18718795214','291c4149ee0da1fff1999ac312593de8','1506009568')
+

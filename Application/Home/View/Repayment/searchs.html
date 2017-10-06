@@ -1,0 +1,137 @@
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+               <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">  
+                            <form action="{:U('Home/repayment/search',array('id'=>'0'))}" method="post" style="float: left; margin-right: 60px;" >
+                                <input placeholder="开始时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="start1">
+                                <input placeholder="结束时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="end1">
+                                <input type="hidden" name="code" value="1">
+                                <input type="submit"  value="应还时间查找">
+                            </form>
+                             <form action="{:U('Home/repayment/searchs',array('id'=>'0'))}" method="post" style="float: right; margin-right: 60px;" >
+                                <input placeholder="开始时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="start2">
+                                <input placeholder="结束时间" required type="text" id="layui-laydate-input" onclick="layui.laydate({elem: this})" class="layui-input" name="end2">
+                                <input type="hidden" name="code" value="2">
+                                <input type="submit"  value="实还时间查找">
+                            </form> 
+                            <div style=""></div>
+                            </div>
+                        <div class="ibox-content">
+
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                                <thead>
+                                 <tr>
+                                    <th>序号</th>
+                                    <th>姓名</th>
+                                    <th>手机号</th>
+                                    <th>银行卡号</th>
+                                    <th>身份证号</th>
+                                    <th>交易单号</th>
+                                    <th>借款时间</th>
+                                    <th>应还时间</th>
+                                    <th>借款期限</th>
+                                    <th>放款金额</th>
+                                    <th>综合费用</th>
+                                    <th>还款金额</th>
+                                    <th>逾期费用</th>
+                                    <th>免去的逾期费用</th>
+                                    <th>还款时间</th>
+                                    <th>芝麻分</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <volist name="arr" id="vo" key="k">
+                                        <tr>
+                                            <td>{$k}</td>
+                                            <td>
+                                                
+                                                {$vo['u_name']}
+                                            </td>
+                                            <td><a href="__ROOT__/index.php/Home/Examine/credit?id={$vo['user_name']}&open_id={$vo['open_id']}">{$vo['user_name']}</a></td>
+                                            <td>{$vo['bank_card']}</td>
+                                            <td>{$vo['identity']}</td>
+                                            <td>{$vo['loan_order']}</td>
+                                            <td>{$vo['pay_time']|date="Y-m-d H:i",###}</td>
+                                            <td>
+                                                <if condition="($vo['be_time'] gt $vo['time'])">
+                                                <span style="color:red">{$vo['be_time']|date="Y-m-d H:i",###}</span>
+                                                <else/>
+                                                <span>{$vo['be_time']|date="Y-m-d H:i",###}</span>
+                                                </if>
+                                            </td>
+                                             <td>
+                                            <if condition="($vo['loan_time'] eq 1)">
+                                            <span style="color:#0000FF">7天</span>
+                                            <elseif condition="($vo['loan_time'] eq 2)" />
+                                            <span style="color:#009900">14天</span>
+                                            </if>
+                                            <if condition="($vo['xutime'] neq '') AND ($vo['xutime'] neq 0)">
+                                                            <span style="color:#990000">+{$vo['xutime']}天</span>
+                                            </if>
+                                            </td>
+                                            <td>{$vo['pay_money']}元</td>
+                                            <td>{$vo['repayment_money']-$vo['pay_money']}元</td>
+                                            <td>{$vo['repayment_money']}元</td>
+                                            <td>
+                                                
+                                                <if condition="($vo['over_charges'] gt 0)">
+                                                    <span style="color:red">{$vo['over_charges']}元</span>
+                                                <else />
+                                                    0元
+                                                </if>
+                                            </td>
+                                            <td>
+                                                  <if condition="$vo['payment'] eq ''">
+                                                  未免
+                                                  <else/>
+                                                  <span style="color:red">{$vo['payment']}</span>
+                                                  </if>
+                                            </td>
+
+                                             <td>
+                                               <span 
+                                                   <if condition="($vo['repayment_time'] gt $vo['be_time'])">
+                                                   style="color:red"
+                                                   </if>
+                                               >
+                                                   {$vo['repayment_time']|date="Y-m-d H:i",###}
+                                               </span>
+                                             </td>
+                                             <td>{$vo['zm_score']}</td>
+                                        </tr>
+                                    </volist>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                            <div class="pagination">{$page}</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+    <script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+    <script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate
+});
+</script>
+</html>

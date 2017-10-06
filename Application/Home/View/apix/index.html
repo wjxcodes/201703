@@ -1,0 +1,260 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>信息审核列表</h5>
+                    <h5 style="margin-left:1000px;color:red">{$hint}</h5>
+                </div>
+                <div class="ibox-content">
+
+                     <!--  微信 开始 -->
+                <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                            <tr>
+                                <th>用户id</th>
+                                <th>微信昵称</th>
+                                <th>持卡人姓名</th>
+                                <th>手机号(用户名)</th>
+                                <th>用户openid</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{$array['user_id']}</td>
+                                <td>{$array['nickname']}</td>
+                                <td>{$array['u_name']}</td>
+                                <td>{$array['user_name']}</td>
+                                <td>{$array['openid']}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+      <tr>
+
+        <td>登记手机号</td>
+        <td>入网时间</td>
+        <td>认证实名</td>
+        <td>认证身份证号</td>
+        <td>手机号</td>
+        <td>登记邮箱</td>
+        <td>当前余额</td>
+        <td>会员等级</td>
+        <td>积分值</td>
+        <td>网龄</td>
+        <td>最早通话时间</td>
+        <td>最近通话时间</td>
+      </tr>
+      <tr>
+
+        <td style="color:red">{$apix_data.basicInfo.phoneNo}</td>
+        <td>{$apix_data.phoneInfo.inNetDate}</td>
+        <td style="color:red">{$apix_data.phoneInfo.realName}</td>
+        <td style="color:red">{$apix_data.phoneInfo.certNo}</td>
+        <td style="color:red">{$apix_data.phoneInfo.phoneNo}</td>
+        <td>{$apix_data.phoneInfo.email}</td>
+        <td>{$apix_data.phoneInfo.balance}</td>
+        <td>{$apix_data.phoneInfo.vipLevel}</td>
+        <td>{$apix_data.phoneInfo.pointValue}</td>
+        <td style="color:red">{$apix_data.phoneInfo.netAge}</td>
+        <td>{$apix_data.phoneInfo.firstCallDate}</td>
+        <td>{$apix_data.phoneInfo.lastCallDate}</td>
+      </tr>
+      <tr>
+        
+        <td>运营商是否实名</td>
+        <td>运营商实名是否与登记人一致</td>
+        <td>是否出现长时间关机（5天以上无短信记录，无通话记录）</td>
+        <td>申请人信息是否命中网贷黑名单</td>
+        <td>是否出现法院相关号码呼叫</td>
+        <td>身份证号码有效性</td>
+      </tr>
+      <tr>
+       
+        <td style="color:red">{$apix_data.deceitRisk.phoneIsAuth}</td>
+        <td>{$apix_data.deceitRisk.samePeople}</td>
+        <td>{$apix_data.deceitRisk.longTimePowerOff}</td>
+        <td>{$apix_data.deceitRisk.inBlacklist}</td>
+        <td>{$apix_data.deceitRisk.calledByCourtNo}</td>
+         <td>{$apix_data.deceitRisk.certNoIsValid}</td>
+      </tr>
+    </table>
+    <br/>
+<span style="margin-left:100px;color:blue"> 总钱数{$money}</span>
+<span style="margin-left:100px;color:blue"> 6个月平均{$money/6|ceil}</span>
+<span style="margin-left:100px;color:blue"> 5个月平均{$money/5|ceil}</span>
+<span style="margin-left:100px;color:blue"> 4个月平均{$money/4|ceil}</span>
+<span style="margin-left:100px;color:blue"> 3个月平均{$money/3|ceil}</span>
+<span style="margin-left:100px;color:blue"> 2个月平均{$money/2|ceil}</span>
+ <br/>
+<h1 style="color:red">运营商消费分析</h1>
+    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+      <tr>
+        <td>月份</td>
+        <td>主叫时间</td>
+        <td>被叫时间</td>
+        <td>短信数</td>
+        <td>话费充值额</td>
+      </tr>
+    <volist name="apix_data.consumeInfo" id="vo">
+      <tr>
+        <td>{$vo.month}</td>
+        <td>{$vo.callTime}</td>
+        <td>{$vo.calledTime}</td>
+        <td>{$vo.totalSmsNumber}</td>
+        <td 
+        <if condition="$vo.payMoney eq 0">
+            style="color:red"
+        <else/>
+            style="color:blue"
+        </if>
+        >{$vo.payMoney}</td>
+      </tr>
+    </volist>
+    </table>
+
+    <h1 style="color:red">通话短信需求分析</h1>
+    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+      <tr>
+        <td>通话次数</td>
+        <td>对方标识</td>
+        <td>月份</td>
+        <td>对方号码</td>
+        <td>短信条数</td>
+      </tr>
+    <volist name="apix_data.specialCallInfo" id="vo">
+      <tr>
+        <td>{$vo.connTimes}</td>
+        <td>{$vo.identityInfo}</td>
+        <td>{$vo.month}</td>
+        <td>{$vo.phoneNo}</td>
+        <td>{$vo.smsTimes}</td>
+      </tr>
+    </volist>
+    </table>
+
+
+
+<h1 style="color:red">通话记录分析</h1>
+    <table   id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+      <tr>
+        <td>号码</td>
+        <td>通话时长</td>
+        <td>通话次数</td>
+        <td>号码归属地</td>
+        <td>被叫次数</td>
+        <td>主叫次数</td>
+        <td>号码标识</td>
+      </tr>
+    <volist name="apix_data.callRecordsInfo" id="vo" offset="0" length='100'>
+      <tr>
+        <td 
+        <php>preg_match('/^1[34578]\d{9}$/A',$vo['phoneNo'],$match); 
+            if(empty($match)){
+                echo "style='color:red'";
+            }</php>
+            >{$vo.phoneNo}</td>
+        <td>{$vo.connTime}</td>
+        <td>{$vo.connTimes}</td>
+        <td>{$vo.belongArea}</td>
+        <td 
+        <if condition="$vo.identifyInfo neq ''">
+          style="color:red"
+        </if>
+        >{$vo.calledTimes}</td>
+        <td 
+        <if condition="$vo.identifyInfo neq ''">
+          style="color:red"
+        </if>
+        >{$vo.callTimes}</td>
+        <td style="color:red">{$vo.identifyInfo}</td>
+      </tr>
+    </volist>
+    </table>
+<h1 style="color:red">联系人位置分析</h1>
+    <table border="1px">
+      <tr>
+        <td>地区</td>
+        <td>号码数量</td>
+        <td>主叫次数</td>
+        <td>主叫时间</td>
+        <td>被叫次数</td>
+        <td>被叫时间</td>
+        <td>占比</td>
+      </tr>
+    <volist name="apix_data.contactAreaInfo" id="vo"  offset="0" length='5'>
+      <tr>
+        <td>{$vo.area}</td>
+        <td>{$vo.totalNumber}</td>
+        <td>{$vo.callTimes}</td>
+        <td>{$vo.callTime}</td>
+        <td>{$vo.calledTimes}</td>
+        <td>{$vo.calledTime}</td>
+        <td>{$vo.percent}</td>
+      </tr>
+    </volist>
+    </table>
+<!-- <h1 style="color:red">短信记录分析</h1>
+    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+      <tr>
+        <td>号码</td>
+        <td>号码归属地</td>
+        <td>条数</td>
+        <td>号码标识</td>
+      </tr>
+    <volist name="apix_data.messageRecordsInfo" id="vo">
+      <tr>
+        <td>{$vo.phoneNo}</td>
+        <td>{$vo.belongArea}</td>
+        <td>{$vo.totalSmsNumber}</td>
+        <td>{$vo.identifyInfo}</td>
+      </tr>
+    </volist>
+    </table> -->
+
+<!-- <h1 style="color:red">（关机详情）</h1>
+    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+      <tr>
+        <td>关机开始日期</td>
+        <td>关机结束日期</td>
+        <td>关机天数</td>
+      </tr>
+    <volist name="apix_data.phoneOffInfos" id="vo">
+      <tr>
+        <td>{$vo.beginDate}</td>
+        <td>{$vo.endDate}</td>
+        <td>{$vo.days}</td>
+      </tr>
+    </volist>
+    </table>
+         -->
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

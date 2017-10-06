@@ -1,0 +1,74 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    
+                </div>
+                <div class="ibox-title">  
+                <div class="ibox-content">
+                    <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <tr>
+                            <td>序号</td>
+                            <td>姓名</td>
+                            <td>手机号</td>
+                            <td>借款金额</td>
+                            <td>逾期天数</td>
+                            <td>逾期金额</td>
+                            <td>身份证号</td>
+                            <td>身份证地址</td>
+                            <td>地址</td>
+                            <td>公司地址</td>
+                            <td>征信</td>
+                        </tr>
+                        <volist name="loan_data" id="vo">
+                            <if condition="$vo['type'] eq 1">
+                                <tr>
+                                    <td>{$vo['key']}</td>
+                                    <td>{$vo['u_name']}</td>
+                                    <td>{$vo['user_name']}</td>
+                                    <td>{$vo['loan_amount']}</td>
+                                    <td>{$vo['be_time']}</td>
+                                    <td>{$vo['money']}</td>
+                                    <td>{$vo['identity']}</td>
+                                    <td>{$vo['identity_area']}</td>
+                                    <td>{$vo['addres']}</td>
+                                    <td>{$vo['com_addres']}</td>
+                                    <td>
+                                        <a href="{:U('Home/Survey/index',array('id'=>$vo['user_name'],'open_id'=>$vo['open_id']))}"><button>征信</button></a> 
+                                        <a href="{:U('Home/Examine/credit',array('id'=>$vo['user_name'],'open_id'=>$vo['open_id']))}"><button>详情</button></a> 
+                                    </td>
+                                </tr>
+                            </if>
+                        </volist>
+                    </table>
+                        <div class="pagination">{$page}</div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+</body>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate
+});
+</script>
+</html>

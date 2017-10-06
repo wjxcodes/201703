@@ -1,0 +1,390 @@
+
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                </div>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <a href="{:U('Home/index/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <input type="button" value="处理操作" onclick="Ceng()">
+                    <h5 style="margin-left:1000px;color:red;Font-size:32px;">{$hint}</h5>
+                    <h5 style="float:right;color:red;Font-size:32px;">{$t_hint}</h5>
+                </div>
+                <div class="ibox-content">
+
+
+
+<div id="ceng" style="position:absolute;z-index:2;left:0;top:0;right:0;background-color:#000;filter:alpha(opacity=50);margin:1px 1px;display:none;width:100%;height:100%;text-align:center;"> 
+</div>
+<div id="close" style="position:absolute !important;left:30%;top:0px;z-index:3;border:1px solid #b2b1b3;background-color:#fff;margin:100px auto;padding:0px;display:none;width:1000px;height:500px;">
+<a href="#" onclick="closeCeng()" style="text-align:right; float:right; margin:20px; color:#b2b1b3">关闭</a>
+    <div class="mycenter-right" id="mycenter-li">
+           
+    </div>
+</div>
+
+
+<if condition="$borrow eq ''">
+    <h5>第一次借款</h5>
+<else/>
+    <h5>借款{$borrow}次</h5>
+</if>
+
+<if condition="$new_record_data eq ''">
+
+<else/>
+<table border="1px" id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+    <tr>
+        <td>应还时间时间</td>
+        <td>还款时间</td>
+        <td>逾期天数</td>
+        <td>逾期费用</td>
+    </tr>
+<volist name="new_record_data" id="vo">
+    <tr>
+        <td>{$vo.should_time|date="Y-m-d H:i:s",###}</td>
+        <td>{$vo.repayment_time|date="Y-m-d H:i:s",###}</td>
+        <td>{$vo.day}</td>
+        <td>{$vo.overdue_money}</td>
+    </tr>
+</volist>
+</table>
+</if>
+<!-- 芝麻信息开始  -->
+<span style="Font-size:32px;">查看信息   </span><span style="margin-left:100px;Font-size:32px;">单号：{$loan_data.loan_order}</span>
+<table border="1px" id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+    <tr>
+        
+        <td>手机号</td>
+        <td>姓名</td>
+        <td>身份证</td>
+        <td>银行卡</td>
+        <td>芝麻分</td>
+    </tr>
+    <tr>
+        
+        <td style="color:#000000">{$credit_data['cbank_tel']}</td>
+        <td style="color:#000000">{$credit_data['cu_name']}</td>
+        <td  style="color:#000000">{$credit_data['cidentity']}</td>
+        <td  style="color:#000000">{$credit_data['cbank_card']}</td>
+        <td style="color:#000000">{$credit_data['zm_score']}</td>
+    </tr>
+    <tr>
+        <td>微信昵称</td>
+        <td>网龄</td>                  
+    </tr>
+    <tr>
+        <td>{$weixin}</td>
+        <td >{$apix_data.phoneInfo.netAge}</td>
+    </tr>
+</table>
+
+
+<h1>人工审核信息   (身份号：{$credit_data['cidentity']})</h1>
+<table>
+    <tr>
+        <td style="height:auto;width:33%; float: left;"><img id="target1" style=" width: 100%; height: auto; margin: 0 auto;" src="__ROOT__/Uploads/{$user_data['identity_front']}"></td>
+        <td style="height:auto;width:33%; float: left; margin: 0 auto;"><img id="target2" style=" width: 100%; height: auto; margin: 0 auto;"  src="__ROOT__/Uploads/{$user_data['identity_reverse']}"></td>
+        <td style="height:auto;width:33%; float: right;"><img id="target3" style=" width: 100%; height: auto; margin: 0 auto;"  src="__ROOT__/Uploads/{$user_data['self_portrait']}"></td>
+    </tr>
+    
+</table>
+
+
+<h1>APIX</h1>
+<table border="1px" id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+
+</table>
+<table border="1px" id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+<tr>
+    <td>淘宝绑定手机号</td>
+    <td>支付宝手机绑定</td>
+    <td>花呗总额</td>
+    <td>{$time_year}淘宝消费</td>
+    <td>互通电话量</td>
+    <td>有效号码（20个内）</td>
+</tr>
+<tr>
+    
+    <td 
+        <php>
+        $taobao_tel=substr($accountSafeInfo['bindMobile'],0,3).substr($accountSafeInfo['bindMobile'],-4);
+        $user_name_tel=substr($user_name,0,3).substr($user_name,-4);
+        if($taobao_tel==$user_name_tel){
+            
+        }else{
+            echo "style='color:red;Font-size:32px;'";
+        }
+        </php>
+    > {$accountSafeInfo.bindMobile}</td>
+    <td 
+        <php>
+        $zfb_tel=substr($bindAccountInfo['bindMobile'],0,3).substr($bindAccountInfo['bindMobile'],-3);
+        $user_name_tel=substr($user_name,0,3).substr($user_name,-3);
+        if($zfb_tel==$user_name_tel){
+        }else{
+            echo "style='color:red;Font-size:32px;'";
+        }
+        </php>
+
+    >{$bindAccountInfo.bindMobile}</td>
+    <td <if condition="$personalInfo['huabeiTotalAmount'] elt 0">
+        style="color:red;Font-size:32px;"
+        </if>
+        >{$personalInfo.huabeiTotalAmount}</td>
+
+    <td <if condition="$lost_money elt 1000">
+        style="color:red;Font-size:32px;"
+        </if>
+        >{$lost_money}</td>
+        <td 
+    <if condition="$apix_return['interflow'] elt 10">style="color:red;Font-size:32px;"</if>
+    >{$apix_return.interflow}</td>
+    <td 
+    <if condition="$apix_return['valid'] lt 13">style="color:red;Font-size:32px;"</if>
+    >{$apix_return.valid}</td>
+
+
+</tr>
+
+
+
+
+<tr>
+    <td>欺诈分</td>
+    <if condition="($credit_data['is_matched'] eq 0)">
+    <else/>
+    <td >行业关注名单</td>
+    </if>
+    <td >四要素信息</td>
+    <td >紧急联系人二要素</td>
+    
+    <if condition="$three_ele neq ''">
+    <td >三要素信息</td>
+    </if>
+    
+    
+    
+</tr>
+
+<tr>
+    <td  <if condition="$credit_data['ivs_score'] lt 85">style="color:red;Font-size:32px;"</if>>{$credit_data['ivs_score']}</td>
+    <if condition="($credit_data['is_matched'] eq 0)">
+    <else/>
+    <td  style="color:red;Font-size:32px;">在</td>
+    </if>
+<!-- 四要素信息 -->
+    <td>
+        <if condition="$match eq ''">
+            <span style="color:blue;Font-size:32px;">匹配</span>
+        <else/>
+        <volist name="match" id="vo">
+            <p style="color:red">{$vo}</p> 
+        </volist>
+        </if>
+    </td>
+<!--  二要素信息 -->
+    <td>
+        <if condition="$ele eq ''">
+            <span style="color:blue;Font-size:32px;">匹配</span>
+        <else/>
+        <volist name="ele" id="vo">
+            <p style="color:red">{$vo}</p> 
+        </volist>
+        </if>
+    </td>
+<!-- 三要素信息 -->
+    <if condition="$three_ele neq ''">
+    <td >
+        <volist name="three_ele" id="vo">
+            <p style="color:red">{$vo}</p>
+        </volist>
+    </td>
+    </if>
+</tr>
+
+<if condition="($credit_data['is_matched'] eq 0)">
+<else/>
+    <tr>
+        <td>行业关注名单详情</td>
+        <td colspan="7" style="color:red">{$credit_data['focus_detail']}</td>
+    </tr>
+</if>
+
+<if condition="($hit_detail eq '')">
+<else/>
+    <tr>
+        <td>欺诈关注清单</td>
+        <td colspan="7" style="color:red">{$hit_detail}</td>
+    </tr>
+</if>
+</table>
+
+
+<h1>紧急联系人</h1>
+<table  id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+<!-- 紧急联系人  开始-->
+<if condition="$apix_return['linkman_tel'] eq ''">
+    <tr>
+        <td>紧急联系人通话</td>
+        <td colspan="4" style="color:red">没有紧急联系人通话记录</td>
+    </tr>
+<else/>
+    <tr>
+        <td rowspan="2">紧急联系人通话</td>
+        <td>号码</td>
+        <td>通话时长</td>
+        <td>通话次数</td>
+        <td>号码归属地</td>
+        <td>被叫次数</td>
+        <td>主叫次数</td>
+
+    </tr>
+    <tr>
+         <td>{$apix_return.linkman_tel.phoneNo}</td>
+        <td>{$apix_return.linkman_tel.connTime}</td>
+        <td>{$apix_return.linkman_tel.connTimes}</td>
+        <td>{$apix_return.linkman_tel.belongArea}</td>
+        <td>{$apix_return.linkman_tel.calledTimes}</td>
+        <td>{$apix_return.linkman_tel.callTimes}</td>
+
+    </tr>
+</if>
+<!-- 紧急联系人  结束-->
+</table>
+
+<h1>地址</h1>
+<table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+<!-- 地址 -->
+<tr>
+    <td >
+        <p>现居地址</p>
+        <p>公司地址</p>
+    </td>
+    <td colspan="4">
+        <p>{$user_data.addres}</p>
+        <p>{$user_data.com_addres}</p>
+    </td>
+</tr>
+<!-- 地址 -->
+
+<!--收货地址开始-->
+<if condition="$addrs eq ''">
+    <tr>
+        <td >收货地址</td>
+        <td colspan="4" style="color:red;">未找到匹配地址</td>
+    </tr>
+<else/>
+        <tr>
+            <td>收货地址</td>
+            <td colspan="4" >
+                <volist name="addrs" id="vo">
+                    <p>{$vo}</p>
+                </volist>
+            </td>
+        </tr>
+</if>
+<!--收货地址结束-->
+</table>
+
+
+
+
+                       
+
+
+  
+
+<!--  Apix 通讯开始  -->
+
+<h1>未知通话</h1>
+<table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+    <tr>
+        <td>号码</td>
+        <td>通话时长</td>
+        <td>通话次数</td>
+        <td>号码归属地</td>
+        <td>被叫次数</td>
+        <td>主叫次数</td>
+        <td>号码标识</td>
+      </tr>
+    <volist name="apix_return.special" id="vo">
+        <tr>
+        <td>{$vo.phoneNo}</td>
+        <td>{$vo.connTime}</td>
+        <td>{$vo.connTimes}</td>
+        <td>{$vo.belongArea}</td>
+        <td style="color:red">{$vo.calledTimes}</td>
+        <td >{$vo.callTimes}</td>
+        <td >{$vo.identifyInfo}</td>
+      </tr>
+    </volist>
+</table>
+
+<!--  Apix 通讯结束  -->
+<volist name="arr" id="vo">
+       <table id="mytable" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+    <volist name="vo['orderProducts']" id="v">
+       <tr>
+            <td style="color:#0000E3">产品名称:</td>
+        <td>{$v.productName}</td>
+            <td style="color:#0000E3">产品价格:</td>
+        <td>{$v.productPrice}</td>
+       </tr>
+    </volist>
+          <tr style="color:#0000E3">
+            <td>订单日期</td>
+            <td>订单状态</td>
+            <td>订单总额</td>
+            <td>订单号</td>
+          </tr>
+          <tr>
+            <td>{$vo.businessDate}</td>
+            <td>{$vo.orderStatus}</td>
+            <td>{$vo.orderTotalPrice}</td>
+            <td>{$vo.orderid}</td>
+          </tr>
+       </table>
+</volist>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+</div>
+<script src="__ROOT__/Public/js/jquery.min.js?v=2.1.4"></script>
+<script src="__ROOT__/Public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__ROOT__/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__ROOT__/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__ROOT__/Public/js/plugins/layer/layer.min.js"></script>
+<script src="__ROOT__/Public/js/hplus.min.js?v=4.1.0"></script>
+<script src="__ROOT__/Public/js/plugins/pace/pace.min.js"></script>
+<script>
+    window.onload = function(){
+      var current = 0;
+      document.getElementById('target1').onclick = function(){
+          current = (current+90)%360;
+          this.style.transform = 'rotate('+current+'deg)';
+      document.getElementById('target2').onclick = function(){
+          current = (current+90)%360;
+          this.style.transform = 'rotate('+current+'deg)';
+          }
+      document.getElementById('target3').onclick = function(){
+          current = (current+90)%360;
+          this.style.transform = 'rotate('+current+'deg)';
+          }
+      }
+    };
+</script>
+</body>
+</html>

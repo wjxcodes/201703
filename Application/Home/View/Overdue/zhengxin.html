@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>征信报告</title>
+<style>
+/*共同样式*/
+* {margin:0; padding:0; font-size:18px;}
+.bb{ border:#F00 1px solid;}
+body {color:#000; background:#FFF; font-family: Verdana, 
+Arial, sans-serif; font-size:18px;
+font-family:"Microsoft YaHei",微软雅黑
+  }
+textarea, input {word-wrap:break-word; word-break:break-all; padding:0px;}
+li {list-style-type:none;}
+img {border:0 none;}
+a {color:#333; text-decoration:none;}
+.qing { clear:both; height:0px; width:100%; font-
+size:1px; line-height:0px; visibility:hidden; 
+overflow:hidden; }
+/*共同样式 end*/
+
+
+
+
+
+
+</style>
+
+
+</head>
+
+<body style="width:100%; height:auto;">
+<div style="width:90%; height:auto; margin:0 auto;">
+<h1 style="margin:0 auto; font-size:36px; margin-top:20px; text-align:center;">征信报告</h1>
+<div style=" width:50%; margin-left:5%;text-align:left; margin-top:30px;">报告编号：{$credit_order}</div>
+
+<ul style="float:left; margin-left:5%; width:45%; margin-top:10px;">
+<li>姓名：{$u_name}</li>
+<li style="margin-top:10px;">身份证号：{$identity}</li>
+</ul>
+<ul style="float:left; width:40%; margin-top:10px;">
+<li>报告类型：征信报告</li>
+<li style="margin-top:10px;">报告生成时间：<?php echo date('Y-m-d H:i:s',time());time() ?></li>
+</ul>
+<div class="qing"></div>
+
+<div style="border-bottom:2px solid #45b7fd; margin-top:10px; margin-bottom:10px; "></div>
+<div style=" width:101%; text-align:left; font-size:14px;"><p style=" font-size:14px;">尊敬的{$u_name}
+  <if condition="$sex eq '男'">
+    先生
+    <else/>
+    女士
+  </if>：</p>
+<p style=" margin-top:5px; font-size:14px;">以下是您的个人信用报告及借款信息，请详细阅读以了解您的信用状况以及借款详情。
+</p>
+</div>
+
+
+<!--tou  end-->
+<div style="float:left; margin-top:40px; margin-bottom:20px;"><img src="__ROOT__/Public/img/qingting.jpg" style="max-width:20%; float:left;"/></div>
+<div class="qing"></div>
+
+<div style=" width:50%; color:#09F; margin-bottom:15px; margin-top:20px;" >个人信息：</div>
+<ul style="float:left; width:28%; margin-left:5%; margin-top:10px;">
+<li>姓名：{$u_name}</li>
+<li style="margin-top:10px;">身份证号：{$identity}</li>
+</ul>
+<ul style="float:left; width:33%; margin-top:10px;">
+<li>性别：{$sex}</li>
+<!-- <li style="margin-top:10px;">地址：四川省 内江市 资中县</li> -->
+</ul>
+<ul style="float:left; width:33%; margin-top:10px;">
+<li>出生日期：{$data_n}年{$data_y}月{$data_r}日</li>
+<li style="margin-top:10px;"></li>
+</ul>
+<div class="qing"></div>
+
+<!--个人信息  end-->
+
+<div style=" width:50%; color:#09F; margin-bottom:15px; margin-top:30px;" >银行卡对应关系四合一验证：</div>
+
+<ul style="float:left; width:45%; margin-left:5%;">
+<li>姓名：{$u_name}</li>
+<li  style="margin-top:10px;">银行卡号：{$bank_card}</li>
+<li  style="margin-top:10px;">银行卡对应关系四合一验证结果： &nbsp;&nbsp;<span style=" color:#09F;">匹配</span> <span style="color:#F90;"><!--不匹配--></span></li>
+</ul>
+<ul style="float:left; width:40%">
+<li>身份证号：{$identity}</li>
+<li  style="margin-top:10px;">银行卡预留手机号：{$bank_tel}</li>
+</ul>
+<div class="qing"></div>
+
+
+
+<!--银行卡四要素  end-->
+
+<div style="  width:50%; color:#09F; margin-bottom:15px; margin-top:30px;">身份证对应关系三合一验证：</div>
+
+<ul style="float:left; width:45%; margin-left:5%;">
+<li>姓名：{$u_name}</li>
+<li  style="margin-top:10px;">手机号：{$user_name}</li>
+<li  style="margin-top:10px;">身份证对应关系三合一验证结果： &nbsp;&nbsp;<span style=" color:#09F;">匹配</span> <span style="color:#F90;"><!--不匹配--></span></li>
+</ul>
+<ul style="float:left; width:40%;">
+<li>身份证号：{$identity}</li>
+<li  style="margin-top:10px;"></li>
+</ul>
+<div class="qing"></div>
+
+<!--身份证三要素  end-->
+
+<div style=" width:50%; color:#09F; margin-bottom:15px; margin-top:30px;">紧急联系人对应关系二合一验证结果：</div>
+
+<ul style="float:left; width:45%; margin-left:5%;">
+<li>联系人姓名：{$linkman_name}</li>
+<li  style="margin-top:10px;">紧急联系人对应关系二合一验证结果： &nbsp;&nbsp;<span style=" color:#09F;">匹配</span> <span style="color:#F90;"><!--不匹配--></span></li>
+</ul>
+<ul style="float:left; width:45%;">
+<li>手机号：{$linkman_tel}</li>
+<li  style="margin-top:10px;"></li>
+</ul>
+<div class="qing"></div>
+
+<!--紧急联系人二要素  end-->
+
+
+
+<div style=" width:50%; margin-bottom:15px; margin-top:30px;"><span style="color:#09F;">行业关注名单：</span>
+											<if condition="($is_matched eq 1)">
+                                                在欺诈名单中
+                                            <elseif condition="($is_matched eq 0)"/>
+                                                不在欺诈名单中
+                                            </if>
+ &nbsp;&nbsp;<!-- 是（请您尽快还清借款，长期逾期会进入行业黑名单，给您的生活带来不便。） --></div>
+
+<div style=" width:50%; margin-bottom:15px; margin-top:30px;"><span style="color:#09F;">欺诈关注名单：</span>
+										
+												<if condition="($hit eq yes)">
+                                                是
+                                                <elseif condition="($hit eq no)" />
+                                               否
+                                                </if> 
+                                                &nbsp;&nbsp;</div>
+<div style="border-bottom:2px solid #999; margin-bottom:10px;"></div>
+<!--芝麻征信  end-->
+
+<div style=" width:50%; font-size:30px; margin-bottom:10px; color:#09F;">反欺诈金融类信息</div>
+<div style=" width:50%; color:#09F;">互联网金融高风险筛查</div>
+<div style="margin-top:10px;">
+<ul style="float:left; margin-left:5%; text-align:center; margin-top:5px;">
+<li>是否出现逾期</li>
+<li>否</li>
+</ul>
+<ul style="float:left; margin-left:10%; text-align:center; margin-top:5px;">
+<li>平台代码</li>
+<li>——</li>
+</ul>
+<ul style="float:left; margin-left:10%; text-align:center; margin-top:5px;">
+<li>逾期次数</li>
+<li>——</li>
+</ul>
+<ul style="float:left; margin-left:10%; text-align:center; margin-top:5px;">
+<li>逾期金额</li>
+<li>——</li>
+</ul>
+<ul style="float:left; margin-left:10%; text-align:center; margin-top:5px;">
+<li>匹配度</li>
+<li>70%</li>
+</ul>
+</div>
+<div class="qing"></div>
+
+<!--<div style=" width:50%; color:#09F;">金融机构注册信息</div>-->
+
+
+
+
+
+
+
+
+
+
+
+<!--金融信息  end-->
+<div style=" width:50%; font-size:30px; margin-top:20px;">借款信息</div>
+
+<ul style="float:left; margin-left:5%; width:28%; margin-top:10px;">
+<li>借款人：{$u_name}</li>
+<li style="margin-top:10px;">借款期限：<if condition="($loan_time eq 1)">
+                                            7
+                                         <elseif condition="($loan_time eq 2)" />
+                                            14
+                                                </if> 天</li>
+</ul>
+<ul style="float:left; width:33%; margin-top:10px;">
+<li>借款金额:{$loan_amount}元</li>
+<li style="margin-top:10px;">逾期天数：{$day}天</li>
+</ul>
+<ul style="float:left; width:33%; margin-top:10px;">
+<li>借款时间：{$loan_request}</li>
+<li style="margin-top:10px;">逾期费用：{$overdue_money}元</li>
+</ul>
+<div class="qing"></div>
+<div style="width:101%;">
+<div style=" margin-top:10px; color:#F90;">尊敬的{$u_name}
+<if condition="$sex eq '男'">
+    先生
+    <else/>
+    女士
+  </if>：</p></div>
+<p style=" margin-top:10px; color:#F90;">您在蜻蜓白卡微信公众号借款{$loan_amount}元，已经逾期7天以上如您再不还款，将进入征信黑名单！给您后期的生活带来诸多不便！</p>
+</div>
+<div style=" margin-top:20px;"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
